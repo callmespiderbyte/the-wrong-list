@@ -1,0 +1,54 @@
+[
+  {
+    "id": "jomiro",
+    "name": "Jomiro Eming",
+    "tagline": "Visual Storyteller & Designer",
+    "quote": "\"You think too much like an artist to be taken seriously in business.\"",
+    "tags": ["virtual coffee", "open to collabs", "speaking gigs"],
+    "bio": "Jomiro curates The Wrong List. He's spent a career at the intersection of design and meaning — building brands, running workshops, and asking questions that make people uncomfortable in the best possible way.\n\nHe was told early on that his ideas were 'too visual' for strategy and 'too strategic' for design. He ignored both.\n\nHe now works with founders, organisations, and creative teams who want to think differently about what they're building and why.",
+    "website": "https://jomiro.com",
+    "linkedin": "https://linkedin.com/in/jomiro",
+    "email": "hello@jomiro.com",
+    "photo": "https://picsum.photos/seed/jomiro/400/400",
+    "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "maya-chen",
+    "name": "Maya Chen",
+    "tagline": "Chaos Architect",
+    "quote": "\"You're too emotional to lead a team.\"",
+    "tags": ["virtual coffee", "mentorship", "happy to advise"],
+    "bio": "Maya built three companies before she turned 35. Each one was written off by at least one investor as 'too niche', 'too weird', or 'too early'. All three found their audiences.\n\nShe was told her leadership style was 'too empathetic' for a fast-moving startup. She disagrees. She thinks empathy is the only leadership style that scales.\n\nNow she advises founders who are tired of being told to toughen up.",
+    "website": "https://mayachen.co",
+    "linkedin": "https://linkedin.com/in/mayachen",
+    "email": "maya@mayachen.co",
+    "photo": "https://picsum.photos/seed/maya-chen/400/400",
+    "backgroundColor": "light-blue"
+  },
+  {
+    "id": "rafael-santos",
+    "name": "Rafael Santos",
+    "tagline": "Reluctant Futurist",
+    "quote": "\"Your ideas are too far ahead — no one will understand them.\"",
+    "tags": ["speaking gigs", "open to collabs", "advisory"],
+    "bio": "Rafael has spent 15 years being called a visionary by people who didn't fund him, and a dreamer by people who didn't hire him. He's fine with both.\n\nHe works at the edges of technology and culture — not because he likes being contrarian, but because that's where the interesting problems are.\n\nHe's currently building something that, by all accounts, shouldn't work. He expects it to.",
+    "website": "https://rafaelsantos.io",
+    "linkedin": "https://linkedin.com/in/rafaelsantos",
+    "email": "r@rafaelsantos.io",
+    "photo": "https://picsum.photos/seed/rafael-santos/400/400",
+    "backgroundColor": "light-blue"
+  },
+  {
+    "id": "priya-nair",
+    "name": "Priya Nair",
+    "tagline": "Inconvenient Optimist",
+    "quote": "\"You ask too many questions. Just execute.\"",
+    "tags": ["virtual coffee", "speaking gigs", "happy to advise"],
+    "bio": "Priya has been told she asks too many questions in every room she's ever been in. She considers this her greatest professional achievement.\n\nShe's led design and strategy teams across four continents, and her most consistent feedback — across all of them — is that she 'challenges assumptions too aggressively'. She's kept every performance review that says this. She frames it differently: she's the person who asks the thing everyone else is thinking.\n\nShe currently runs her own consultancy helping organisations figure out what they actually believe.",
+    "website": "https://priyanair.com",
+    "linkedin": "https://linkedin.com/in/priyanair",
+    "email": "priya@priyanair.com",
+    "photo": "https://picsum.photos/seed/priya-nair/400/400",
+    "backgroundColor": "light-blue"
+  }
+]

@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #7B0D1E;
+  --teal: #0B3D3D;
+  --off-white: #F2EDE4;
+  --black: #0A0A0A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--off-white);
+  font-family: var(--font-mono), monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Tag pills */
+.tag-pill {
+  border: 1px solid rgba(242, 237, 228, 0.5);
+  color: #F2EDE4;
+  padding: 2px 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  border-radius: 0;
+  background: transparent;
+  text-transform: lowercase;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Polaroid frame */
+.polaroid {
+  background: white;
+  padding: 8px 8px 24px 8px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Directory row ───────────────────────────────── */
+.directory-row {
+  border-top: 1px solid rgba(242, 237, 228, 0.2);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  display: grid;
+  grid-template-columns: 96px minmax(160px, 220px) 1fr auto;
+  grid-template-areas: "photo name quote tags";
+  gap: 24px;
+  align-items: center;
+  min-height: 80px;
+  padding: 16px 0;
+}
+
+.directory-row:hover {
+  background-color: rgba(242, 237, 228, 0.04);
+}
+
+/* Named grid areas */
+.dr-photo        { grid-area: photo; flex-shrink: 0; }
+.dr-name-block   { grid-area: name;  min-width: 0; }
+.dr-quote-section{ grid-area: quote; min-width: 0; }
+.dr-tags-section { grid-area: tags; }
+
+/* Quote: clamped to 2 lines on desktop */
+.dr-quote-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Tags pills: right-aligned on desktop */
+.dr-tags-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+  max-width: 240px;
+}
+
+/* Section labels: hidden on desktop, shown on mobile */
+.dr-section-label { display: none; }
+
+/* Directory column headers — display controlled by CSS so media query can hide it */
+.directory-header { display: grid; }
+
+/* NavBar logo fade */
+.nav-logo-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.nav-logo-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.4s ease;
+}
+
+/* Hamburger spans */
+.hamburger-span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: #F2EDE4;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Down arrow bounce */
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(7px); }
+}
+
+/* Gradient blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+}
+
+/* Profile link pills */
+.link-pill {
+  border: none;
+  color: #0A0A0A;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  border-radius: 0;
+  background: #F2EDE4;
+  text-transform: lowercase;
+  display: inline-block;
+  width: fit-content;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link-pill:hover {
+  background-color: #ffffff;
+}
+
+/* HOME nav link */
+.nav-home-link {
+  font-family: var(--font-vanilla), serif;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  color: #F2EDE4;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+}
+
+.nav-home-link:hover {
+  transform: scale(1.08) rotate(2deg);
+}
+
+/* ── Profile page grid ───────────────────────────── */
+
+/* Named areas assigned on each child */
+.pf-top    { grid-area: top; }
+.pf-photo  { grid-area: photo; }
+.pf-bottom { grid-area: bottom; }
+.pf-links  { grid-area: links; }
+
+.profile-grid {
+  display: grid;
+  column-gap: clamp(40px, 6vw, 100px);
+  row-gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Normal: photo left, text right — 2×2 grid */
+.profile-grid-normal {
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  grid-template-areas:
+    "photo top"
+    "links bottom";
+}
+
+/* Reversed (curator): text left, photo right — 2×2 grid */
+.profile-grid-reversed {
+  grid-template-columns: 1fr minmax(240px, 320px);
+  grid-template-areas:
+    "top   photo"
+    "bottom links";
+}
+
+/* Name starts 48px below photo top on desktop */
+.profile-grid .pf-top {
+  padding-top: 48px;
+}
+
+/* ── Responsive: directory (tablet + mobile ≤ 900px) ── */
+@media (max-width: 900px) {
+
+  /* Hide the column header row */
+  .directory-header {
+    display: none;
+  }
+
+  /* Reflow to 2-col card: photo beside name, then quote, then tags full-width */
+  .directory-row {
+    grid-template-columns: 64px 1fr;
+    grid-template-areas:
+      "photo name"
+      "quote quote"
+      "tags  tags";
+    gap: 12px 16px;
+    align-items: start;
+    padding: 20px 0;
+    min-height: unset;
+  }
+
+  /* Reveal section labels */
+  .dr-section-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(242, 237, 228, 0.4);
+    margin-bottom: 6px;
+  }
+
+  /* Show full quote — no clamping */
+  .dr-quote-text {
+    overflow: visible;
+    display: block;
+    -webkit-line-clamp: unset;
+  }
+
+  /* Tags: left-aligned */
+  .dr-tags-pills {
+    justify-content: flex-start;
+    max-width: none;
+  }
+}
+
+/* ── Responsive: profile page (≤ 700px) ────────────── */
+@media (max-width: 700px) {
+
+  /* Single column in the desired mobile order */
+  .profile-grid-normal,
+  .profile-grid-reversed {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "top"
+      "photo"
+      "bottom"
+      "links";
+    row-gap: 24px;
+  }
+
+  /* Remove top indent — name is no longer beside a photo */
+  .profile-grid .pf-top {
+    padding-top: 0;
+  }
+}

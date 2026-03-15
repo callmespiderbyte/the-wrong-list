@@ -23,7 +23,7 @@
     "linkedin": "https://linkedin.com/in/mayachen",
     "email": "maya@mayachen.co",
     "photo": "https://picsum.photos/seed/maya-chen/400/400",
-    "backgroundColor": "light-blue"
+    "backgroundColor": "dark-blue"
   },
   {
     "id": "rafael-santos",
@@ -36,7 +36,7 @@
     "linkedin": "https://linkedin.com/in/rafaelsantos",
     "email": "r@rafaelsantos.io",
     "photo": "https://picsum.photos/seed/rafael-santos/400/400",
-    "backgroundColor": "light-blue"
+    "backgroundColor": "dark-blue"
   },
   {
     "id": "priya-nair",
@@ -49,6 +49,6 @@
     "linkedin": "https://linkedin.com/in/priyanair",
     "email": "priya@priyanair.com",
     "photo": "https://picsum.photos/seed/priya-nair/400/400",
-    "backgroundColor": "light-blue"
+    "backgroundColor": "dark-blue"
   }
 ]

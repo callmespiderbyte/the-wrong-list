@@ -22,8 +22,7 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
       const y = window.scrollY
       setScrolled(y > 10)
       if (!showLogoImmediately) {
-        const threshold = window.innerHeight * 0.8
-        setLogoVisible(y > threshold)
+        setLogoVisible(y > 10)
       }
     }
 

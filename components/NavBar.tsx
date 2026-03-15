@@ -15,17 +15,20 @@ interface NavBarProps {
 export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [logoVisible, setLogoVisible] = useState(showLogoImmediately)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    if (showLogoImmediately) return
-
     const handleScroll = () => {
-      // Show logo once user scrolls past ~80% of viewport height (past hero)
-      const threshold = window.innerHeight * 0.8
-      setLogoVisible(window.scrollY > threshold)
+      const y = window.scrollY
+      setScrolled(y > 10)
+      if (!showLogoImmediately) {
+        const threshold = window.innerHeight * 0.8
+        setLogoVisible(y > threshold)
+      }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [showLogoImmediately])
 
@@ -50,7 +53,8 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '16px 0 16px 24px',
-          background: 'transparent',
+          background: scrolled ? 'rgba(0, 0, 0, 0.65)' : 'transparent',
+          transition: 'background 0.3s ease',
           pointerEvents: 'none',
         }}
       >

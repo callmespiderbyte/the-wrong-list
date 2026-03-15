@@ -28,6 +28,7 @@ export default function AboutPage() {
       >
         {/* Logo + tagline side by side, logo sitting higher */}
         <div
+          className="about-hero"
           style={{
             display: 'flex',
             flexDirection: 'row',
@@ -62,6 +63,7 @@ export default function AboutPage() {
           }}
         >
           <p
+            className="about-body-text"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.9rem',
@@ -73,6 +75,7 @@ export default function AboutPage() {
             The Wrong List is a curated, invite-only directory of people who were told they were too much — too loud, too different, too unconventional, too early, too difficult. Replace this with your own copy.
           </p>
           <p
+            className="about-body-text"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.9rem',
@@ -84,6 +87,7 @@ export default function AboutPage() {
             Being on this list isn't a consolation prize. It's a recognition that the people who change things are rarely the ones who followed the rules. Replace this paragraph with your own words.
           </p>
           <p
+            className="about-body-text"
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.9rem',

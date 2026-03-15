@@ -273,4 +273,25 @@ body {
   .profile-grid .pf-top {
     padding-top: 0;
   }
+
+  /* Smaller body text on profile + curator pages */
+  .pf-bio-text  { font-size: 0.78rem !important; }
+  .pf-quote-text { font-size: 0.82rem !important; }
+
+  /* Smaller body text on about page */
+  .about-body-text { font-size: 0.78rem !important; }
+
+  /* About page: stack logo above tagline */
+  .about-hero {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .about-hero img:first-child {
+    max-width: min(280px, 70vw) !important;
+  }
+
+  .about-hero img:last-child {
+    max-width: min(200px, 55vw) !important;
+  }
 }

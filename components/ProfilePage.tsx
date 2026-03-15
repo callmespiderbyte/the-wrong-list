@@ -115,6 +115,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
               {bioParagraphs.map((paragraph, i) => (
                 <p
                   key={i}
+                  className="pf-bio-text"
                   style={{
                     fontFamily: 'var(--font-mono)',
                     fontSize: '0.95rem',
@@ -130,6 +131,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
             </div>
 
             <blockquote
+              className="pf-quote-text"
               style={{
                 marginTop: '36px',
                 borderLeft: '1px solid rgba(242, 237, 228, 0.3)',

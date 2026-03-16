@@ -9,5 +9,5 @@ export interface Person {
   linkedin: string
   email: string
   photo: string
-  backgroundColor: 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue'
+  backgroundColor: 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue' | 'purple'
 }

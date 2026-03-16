@@ -55,7 +55,7 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* Placeholder body text — slightly off-centre to the right */}
+        {/* Body copy */}
         <div
           style={{
             maxWidth: '560px',
@@ -72,7 +72,7 @@ export default function AboutPage() {
               marginBottom: '20px',
             }}
           >
-            The Wrong List is a curated, invite-only directory of people who were told they were too much — too loud, too different, too unconventional, too early, too difficult. Replace this with your own copy.
+            The Wrong* List is a curated, invite-only directory of people who got somewhere interesting by ignoring the status quo. They aren&rsquo;t &ldquo;wrong&rdquo;&mdash;they&rsquo;ve just been labelled as such by most standards. The good news is: &ldquo;Most&rdquo; standards aren&rsquo;t the ones we care about here. In fact, they&rsquo;re the ones most worth challenging.
           </p>
           <p
             className="about-body-text"
@@ -84,7 +84,31 @@ export default function AboutPage() {
               marginBottom: '20px',
             }}
           >
-            Being on this list isn't a consolation prize. It's a recognition that the people who change things are rarely the ones who followed the rules. Replace this paragraph with your own words.
+            The people on this list are the kinds of people who were always told to specialise, to tone it down, to pick a lane, to be more realistic&hellip; they were either &ldquo;too much&rdquo;, &ldquo;too loud&rdquo;, or &ldquo;too ambitious&rdquo;, and yet they still decided to go their own way. What makes them worth paying attention to is not just about what they do now, but also about what they chose <em>not</em> to do back then.
+          </p>
+          <p
+            className="about-body-text"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.9rem',
+              color: 'rgba(242, 237, 228, 0.75)',
+              lineHeight: 1.8,
+              marginBottom: '20px',
+            }}
+          >
+            <em>The list is part-inspiration, part-address book</em>: Everyone here is open to something&mdash;mentorship, collaboration, a conversation, a partnership&mdash;and it varies by person; so, check their profile and see what fits. Whether you want a new person to follow on LinkedIn, or someone to shoot an email with a burning question, you&rsquo;re guaranteed to find someone here that matches your energy.
+          </p>
+          <p
+            className="about-body-text"
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.9rem',
+              color: 'rgba(242, 237, 228, 0.75)',
+              lineHeight: 1.8,
+              marginBottom: '20px',
+            }}
+          >
+            The people here have been hand-picked, and have opted-in. If you&rsquo;ve been looking for like-minded individuals, this is a good place to start.
           </p>
           <p
             className="about-body-text"
@@ -95,7 +119,7 @@ export default function AboutPage() {
               lineHeight: 1.8,
             }}
           >
-            Membership is by invitation only. If you think someone belongs here, you know where to find us.
+            PS: New people get added over time, so it&rsquo;s worth checking back every now and then.
           </p>
         </div>
       </main>

@@ -8,8 +8,8 @@ interface GradientBackgroundProps {
 
 // Maps each color key to its background image file in /public/assets/
 const backgroundImages: Record<DominantColor, string> = {
-  red:          '/assets/bg-red.jpg',
-  teal:         '/assets/bg-red.jpg',       // legacy fallback
+  red:          '/assets/bg-red.png',
+  teal:         '/assets/bg-red.png',       // legacy fallback
   indigo:       '/assets/bg-dark-blue.png', // legacy fallback
   'light-blue': '/assets/bg-light-blue.png',
   'dark-blue':  '/assets/bg-dark-blue.png',

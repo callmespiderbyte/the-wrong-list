@@ -17,9 +17,10 @@ export default function AboutPage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
           paddingLeft: 'clamp(32px, 8vw, 120px)',
           paddingRight: 'clamp(32px, 8vw, 120px)',
-          paddingTop: '100px',
+          paddingTop: '160px',
           paddingBottom: '80px',
           position: 'relative',
           zIndex: 1,
@@ -59,7 +60,6 @@ export default function AboutPage() {
         <div
           style={{
             maxWidth: '560px',
-            marginLeft: 'clamp(0px, 18vw, 220px)',
           }}
         >
           <p

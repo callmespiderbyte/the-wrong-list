@@ -35,7 +35,7 @@ export default function MenuOverlay({ isOpen, onClose, people }: MenuOverlayProp
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '100px 48px 48px 48px',
+        padding: '160px 48px 48px 48px',
         opacity: isOpen ? 1 : 0,
         pointerEvents: isOpen ? 'auto' : 'none',
         transition: 'opacity 0.15s ease',
@@ -43,66 +43,13 @@ export default function MenuOverlay({ isOpen, onClose, people }: MenuOverlayProp
     >
       {/* Navigation links */}
       <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-        <button
-          onClick={() => handleNavigate('/')}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
-            padding: 0,
-            color: '#F2EDE4',
-            fontFamily: 'var(--font-heal)',
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            transition: 'opacity 0.15s ease',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.6')}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-        >
+        <button onClick={() => handleNavigate('/')} className="menu-nav-link">
           The Wrong* List
         </button>
-
-        <button
-          onClick={() => handleNavigate('/about')}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
-            padding: 0,
-            color: '#F2EDE4',
-            fontFamily: 'var(--font-heal)',
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            transition: 'opacity 0.15s ease',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.6')}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-        >
+        <button onClick={() => handleNavigate('/about')} className="menu-nav-link">
           What is this?
         </button>
-
-        <button
-          onClick={() => handleNavigate('/curator')}
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            textAlign: 'left',
-            padding: 0,
-            color: '#F2EDE4',
-            fontFamily: 'var(--font-heal)',
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            transition: 'opacity 0.15s ease',
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.6')}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-        >
+        <button onClick={() => handleNavigate('/curator')} className="menu-nav-link">
           Who made this
         </button>
       </nav>

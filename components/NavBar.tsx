@@ -41,6 +41,22 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
 
   return (
     <>
+      {/* Black gradient nav — fades from solid black at top to transparent */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '140px',
+          zIndex: 58,
+          pointerEvents: 'none',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.4) 65%, transparent 100%)',
+          opacity: scrolled ? 1 : 0,
+          transition: 'opacity 0.4s ease',
+        }}
+      />
+
       <header
         style={{
           position: 'fixed',
@@ -52,8 +68,6 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           alignItems: 'center',
           justifyContent: 'space-between',
           padding: '16px 0 16px 24px',
-          background: scrolled ? 'rgba(0, 0, 0, 0.65)' : 'transparent',
-          transition: 'background 0.3s ease',
           pointerEvents: 'none',
         }}
       >
@@ -74,7 +88,8 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
             alt="The Wrong List"
             width={517}
             height={256}
-            style={{ height: '36px', width: 'auto' }}
+            className="nav-brandmark"
+            style={{ width: 'auto' }}
             priority
           />
         </Link>

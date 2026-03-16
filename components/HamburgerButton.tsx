@@ -10,6 +10,7 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
     <button
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      className="hamburger-btn"
       style={{
         background: 'none',
         border: 'none',
@@ -18,16 +19,13 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        gap: '5px',
-        width: '46px',
-        height: '46px',
         flexShrink: 0,
       }}
     >
       <span
         className="hamburger-span"
         style={{
-          transform: isOpen ? 'translateY(6.5px) rotate(45deg)' : 'none',
+          transform: isOpen ? 'translateY(13px) rotate(45deg)' : 'none',
         }}
       />
       <span
@@ -39,7 +37,7 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
       <span
         className="hamburger-span"
         style={{
-          transform: isOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
+          transform: isOpen ? 'translateY(-13px) rotate(-45deg)' : 'none',
         }}
       />
     </button>

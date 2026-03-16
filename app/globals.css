@@ -108,14 +108,58 @@ body {
   transition: opacity 0.4s ease;
 }
 
-/* Hamburger spans */
+/* NavBar brandmark — desktop default */
+.nav-brandmark {
+  height: 48px;
+}
+
+/* Hamburger button — desktop default */
+.hamburger-btn {
+  gap: 10px;
+  width: 72px;
+  height: 72px;
+}
+
+/* Hamburger spans — desktop default */
 .hamburger-span {
   display: block;
-  width: 22px;
-  height: 1.5px;
+  width: 44px;
+  height: 3px;
   background-color: #F2EDE4;
   transform-origin: center;
   transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Tablet (≤ 768px) */
+@media (max-width: 768px) {
+  .nav-brandmark {
+    height: 34px;
+  }
+  .hamburger-btn {
+    gap: 7px;
+    width: 54px;
+    height: 54px;
+  }
+  .hamburger-span {
+    width: 30px;
+    height: 2px;
+  }
+}
+
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+  .nav-brandmark {
+    height: 26px;
+  }
+  .hamburger-btn {
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+  }
+  .hamburger-span {
+    width: 22px;
+    height: 2px;
+  }
 }
 
 /* Down arrow bounce */
@@ -144,13 +188,47 @@ body {
   text-transform: lowercase;
   display: inline-block;
   width: fit-content;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .link-pill:hover {
   background-color: #ffffff;
+  transform: translateX(8px);
+}
+
+/* Menu overlay nav links */
+.menu-nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  color: #F2EDE4;
+  font-family: var(--font-heal);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+}
+
+.menu-nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: #F2EDE4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s linear;
+}
+
+.menu-nav-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* HOME nav link */
@@ -189,7 +267,7 @@ body {
 
 /* Normal: photo left, text right — 2×2 grid */
 .profile-grid-normal {
-  grid-template-columns: minmax(240px, 320px) 1fr;
+  grid-template-columns: minmax(280px, 400px) 1fr;
   grid-template-areas:
     "photo top"
     "links bottom";
@@ -197,7 +275,7 @@ body {
 
 /* Reversed (curator): text left, photo right — 2×2 grid */
 .profile-grid-reversed {
-  grid-template-columns: 1fr minmax(240px, 320px);
+  grid-template-columns: 1fr minmax(280px, 400px);
   grid-template-areas:
     "top   photo"
     "bottom links";
@@ -206,6 +284,11 @@ body {
 /* Name starts 48px below photo top on desktop */
 .profile-grid .pf-top {
   padding-top: 48px;
+}
+
+/* Extra breathing room so links clear the photo's drop shadow */
+.profile-grid .pf-links {
+  padding-top: 20px;
 }
 
 /* ── Responsive: directory (tablet + mobile ≤ 900px) ── */

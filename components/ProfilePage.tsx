@@ -97,6 +97,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 width: '100%',
                 height: 'auto',
                 aspectRatio: '1/1',
+                boxShadow: '10px 10px 0px 0px white',
               }}
               priority
             />

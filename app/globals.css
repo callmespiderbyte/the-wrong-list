@@ -80,10 +80,10 @@ body {
   -webkit-box-orient: vertical;
 }
 
-/* Tags pills: right-aligned on desktop */
+/* Tags pills: right-aligned on desktop, single line */
 .dr-tags-pills {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 4px;
   justify-content: flex-end;
   max-width: 240px;
@@ -291,15 +291,60 @@ body {
   padding-top: 20px;
 }
 
-/* ── Responsive: directory (tablet + mobile ≤ 900px) ── */
-@media (max-width: 900px) {
+/* ── Responsive: directory — small desktop / tablet (1150px → 601px) ── */
+/* Row 1: photo | name | tags (right-aligned). Row 2: quote full-width */
+@media (max-width: 1150px) and (min-width: 601px) {
 
-  /* Hide the column header row */
-  .directory-header {
-    display: none;
+  /* Hide header — labels move inline into each row */
+  .directory-header { display: none; }
+
+  /* 3-col rows: photo + name + tags on row 1, quote spanning all 3 below */
+  .directory-row {
+    grid-template-columns: 64px 1fr auto;
+    grid-template-areas:
+      "photo name  tags"
+      "quote quote quote";
+    gap: 8px 16px;
+    align-items: start;
+    padding: 20px 0;
+    min-height: unset;
   }
 
-  /* Reflow to 2-col card: photo beside name, then quote, then tags full-width */
+  /* Show both section labels */
+  .dr-section-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(242, 237, 228, 0.4);
+    margin-bottom: 6px;
+  }
+
+  /* Show full quote */
+  .dr-quote-text {
+    overflow: visible;
+    display: block;
+    -webkit-line-clamp: unset;
+  }
+
+  /* Tags: right-aligned, stacked vertically */
+  .dr-tags-pills {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    max-width: none;
+    flex-wrap: nowrap;
+  }
+}
+
+/* ── Responsive: directory — mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+
+  /* Hide column headers entirely */
+  .directory-header { display: none; }
+
+  /* Fully stacked card */
   .directory-row {
     grid-template-columns: 64px 1fr;
     grid-template-areas:
@@ -312,7 +357,7 @@ body {
     min-height: unset;
   }
 
-  /* Reveal section labels */
+  /* Reveal both section labels */
   .dr-section-label {
     display: block;
     font-family: var(--font-mono);
@@ -323,17 +368,18 @@ body {
     margin-bottom: 6px;
   }
 
-  /* Show full quote — no clamping */
+  /* Show full quote */
   .dr-quote-text {
     overflow: visible;
     display: block;
     -webkit-line-clamp: unset;
   }
 
-  /* Tags: left-aligned */
+  /* Tags left-aligned on mobile */
   .dr-tags-pills {
     justify-content: flex-start;
     max-width: none;
+    flex-wrap: wrap;
   }
 }
 

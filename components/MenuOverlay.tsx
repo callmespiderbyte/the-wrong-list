@@ -5,11 +5,13 @@ import { Person } from '@/lib/types'
 
 interface MenuOverlayProps {
   isOpen: boolean
+  contentVisible: boolean
   onClose: () => void
   people: Person[]
+  navHeight: number
 }
 
-export default function MenuOverlay({ isOpen, onClose, people }: MenuOverlayProps) {
+export default function MenuOverlay({ isOpen, contentVisible, onClose, people, navHeight }: MenuOverlayProps) {
   const router = useRouter()
 
   function handleNavigate(href: string) {
@@ -29,16 +31,18 @@ export default function MenuOverlay({ isOpen, onClose, people }: MenuOverlayProp
     <div
       style={{
         position: 'fixed',
-        inset: 0,
-        zIndex: 50,
-        backgroundColor: '#0A0A0A',
+        top: `${navHeight}px`,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 59,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        padding: '160px 48px 48px 48px',
-        opacity: isOpen ? 1 : 0,
+        padding: '80px 48px 48px 48px',
+        opacity: contentVisible ? 1 : 0,
         pointerEvents: isOpen ? 'auto' : 'none',
-        transition: 'opacity 0.15s ease',
+        transition: 'opacity 0.2s ease',
       }}
     >
       {/* Navigation links */}

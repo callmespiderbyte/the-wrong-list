@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { useState, useCallback } from 'react'
 import { Person } from '@/lib/types'
 
 interface ProfileRowProps {
@@ -11,6 +12,8 @@ interface ProfileRowProps {
 
 export default function ProfileRow({ person, index }: ProfileRowProps) {
   const router = useRouter()
+  const [hovered, setHovered] = useState(false)
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
 
   // Alternating offset on right only — photos always flush left
   const isOdd = index % 2 !== 0
@@ -27,6 +30,10 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
     }
   }
 
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    setMousePos({ x: e.clientX, y: e.clientY })
+  }, [])
+
   return (
     <div
       className="directory-row"
@@ -36,8 +43,40 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
       tabIndex={0}
       style={{ paddingRight, cursor: 'pointer' }}
     >
-      {/* Photo */}
-      <div className="dr-photo">
+      {/* Floating large image — follows cursor, only while photo is hovered */}
+      {hovered && (
+        <div
+          style={{
+            position: 'fixed',
+            left: mousePos.x + 24,
+            top: mousePos.y - 130,
+            width: '260px',
+            height: '260px',
+            pointerEvents: 'none',
+            zIndex: 999,
+            borderRadius: '4px',
+            overflow: 'hidden',
+            boxShadow: '0 8px 40px rgba(0,0,0,0.5)',
+            opacity: 1,
+          }}
+        >
+          <Image
+            src={person.photo}
+            alt={person.name}
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+      )}
+
+      {/* Photo thumbnail — hidden on hover */}
+      <div
+        className="dr-photo"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseMove={handleMouseMove}
+        style={{ opacity: hovered ? 0 : 1, transition: 'opacity 0.2s ease' }}
+      >
         <Image
           src={person.photo}
           alt={person.name}
@@ -76,7 +115,7 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
 
       {/* Quote — label shown on mobile, line-clamped on desktop */}
       <div className="dr-quote-section">
-        <p className="dr-section-label">What they were told was wrong:</p>
+        <p className="dr-section-label">People always told me:</p>
         <p
           className="dr-quote-text"
           style={{

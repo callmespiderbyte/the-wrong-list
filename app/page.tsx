@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <GradientBackground dominantColor="red" />
       <ScrollDimmer />
-      <NavBar showLogoImmediately={false} people={people} />
+      <NavBar showLogoImmediately={false} navTint="red" people={people} />
 
       {/* Hero section */}
       <section
@@ -89,7 +89,7 @@ export default function HomePage() {
               color: 'rgba(242, 237, 228, 0.4)',
             }}
           >
-            what they were told was wrong
+            people always told me:
           </p>
           <p
             style={{

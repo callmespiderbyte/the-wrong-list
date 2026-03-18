@@ -7,29 +7,36 @@ import HamburgerButton from './HamburgerButton'
 import MenuOverlay from './MenuOverlay'
 import { Person } from '@/lib/types'
 
+const NAV_HEIGHT = 80
+
 interface NavBarProps {
   showLogoImmediately: boolean
   people: Person[]
+  navTint?: string // kept for prop-compatibility, no longer used
 }
 
 export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [logoVisible, setLogoVisible] = useState(showLogoImmediately)
+  const [menuContentVisible, setMenuContentVisible] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
+  // Scroll-triggered bar visibility — appears on scroll, hides when back at top
   useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 10)
-      if (!showLogoImmediately) {
-        setLogoVisible(y > 10)
-      }
-    }
-
+    setScrolled(false)
+    const handleScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [showLogoImmediately])
+  }, [])
+
+  // Delay menu content until the black bar has expanded
+  useEffect(() => {
+    if (menuOpen) {
+      const t = setTimeout(() => setMenuContentVisible(true), 280)
+      return () => clearTimeout(t)
+    } else {
+      setMenuContentVisible(false)
+    }
+  }, [menuOpen])
 
   function handleMenuToggle() {
     setMenuOpen((prev) => !prev)
@@ -41,19 +48,18 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
 
   return (
     <>
-      {/* Black gradient nav — fades from solid black at top to transparent */}
+      {/* Black bar — fades in on scroll, expands to full screen when menu opens */}
       <div
         style={{
           position: 'fixed',
           top: 0,
           left: 0,
           right: 0,
-          height: '140px',
+          height: menuOpen ? '100vh' : `${NAV_HEIGHT}px`,
+          backgroundColor: '#0A0A0A',
           zIndex: 58,
-          pointerEvents: 'none',
-          background: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.4) 65%, transparent 100%)',
-          opacity: scrolled ? 1 : 0,
-          transition: 'opacity 0.4s ease',
+          opacity: scrolled || menuOpen ? 1 : 0,
+          transition: 'height 0.35s ease, opacity 0.4s ease',
         }}
       />
 
@@ -63,11 +69,12 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           top: 0,
           left: 0,
           right: 0,
+          height: `${NAV_HEIGHT}px`,
           zIndex: 60,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '16px 0 16px 24px',
+          padding: '0 0 0 24px',
           pointerEvents: 'none',
         }}
       >
@@ -77,9 +84,7 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           style={{
             display: 'flex',
             alignItems: 'center',
-            pointerEvents: logoVisible ? 'auto' : 'none',
-            opacity: logoVisible ? 1 : 0,
-            transition: 'opacity 0.4s ease',
+            pointerEvents: 'auto',
             textDecoration: 'none',
           }}
         >
@@ -116,7 +121,13 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
         </div>
       </header>
 
-      <MenuOverlay isOpen={menuOpen} onClose={handleMenuClose} people={people} />
+      <MenuOverlay
+        isOpen={menuOpen}
+        contentVisible={menuContentVisible}
+        onClose={handleMenuClose}
+        people={people}
+        navHeight={NAV_HEIGHT}
+      />
     </>
   )
 }

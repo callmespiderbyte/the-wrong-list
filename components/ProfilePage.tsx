@@ -16,12 +16,12 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
   return (
     <>
       <GradientBackground dominantColor={person.backgroundColor} />
-      <NavBar showLogoImmediately={true} people={people} />
+      <NavBar showLogoImmediately={true} navTint={person.backgroundColor as 'red' | 'dark-blue' | 'purple'} people={people} />
 
       <main
         style={{
           minHeight: '100vh',
-          paddingTop: '100px',
+          paddingTop: '140px',
           paddingBottom: '80px',
           paddingLeft: 'clamp(24px, 5vw, 80px)',
           paddingRight: 'clamp(24px, 5vw, 80px)',
@@ -82,6 +82,22 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 </span>
               ))}
             </div>
+
+            <blockquote
+              style={{
+                marginTop: '40px',
+                borderLeft: '1px solid rgba(242, 237, 228, 0.3)',
+                paddingLeft: '20px',
+                fontFamily: 'var(--font-mono)',
+                fontStyle: 'italic',
+                fontSize: '1rem',
+                color: 'rgba(242, 237, 228, 0.6)',
+                lineHeight: 1.6,
+                maxWidth: '50ch',
+              }}
+            >
+              {person.quote}
+            </blockquote>
           </div>
 
           {/* ── photo ── */}
@@ -131,22 +147,6 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
               ))}
             </div>
 
-            <blockquote
-              className="pf-quote-text"
-              style={{
-                marginTop: '36px',
-                borderLeft: '1px solid rgba(242, 237, 228, 0.3)',
-                paddingLeft: '20px',
-                fontFamily: 'var(--font-mono)',
-                fontStyle: 'italic',
-                fontSize: '1rem',
-                color: 'rgba(242, 237, 228, 0.6)',
-                lineHeight: 1.6,
-                maxWidth: '50ch',
-              }}
-            >
-              {person.quote}
-            </blockquote>
           </div>
 
           {/* ── links ── */}
@@ -188,6 +188,17 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 style={{ marginLeft: '40px' }}
               >
                 linkedin ↗
+              </a>
+            )}
+            {person.behance && (
+              <a
+                href={person.behance}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '40px' }}
+              >
+                behance ↗
               </a>
             )}
           </div>

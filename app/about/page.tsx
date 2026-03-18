@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <>
       <GradientBackground dominantColor="red" />
-      <NavBar showLogoImmediately={true} people={people} />
+      <NavBar showLogoImmediately={true} navTint="red" people={people} />
 
       <main
         style={{

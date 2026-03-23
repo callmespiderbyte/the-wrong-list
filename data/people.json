@@ -39,6 +39,32 @@
     "backgroundColor": "dark-blue"
   },
   {
+    "id": "clark-marchese",
+    "name": "Clark Marchese",
+    "tagline": "Schemestress / Expert in Scheming",
+    "quote": "\"Your dreams are too big to ever become true. You're delusional.\"",
+    "tags": ["email & linkedin", "hire & collabs", "virtual coffee chat"],
+    "bio": "Clark grew up in Idaho, where the mountains that met his backyard stand a little too tall for most people there to look beyond them. He, however, did look beyond them; and now he lives in Paris -- which, for a kid from Idaho, is either the logical conclusion, proof of delusion, or a healthy mix of both.\n\nHe learned early that if he wanted something, he'd have to find his own way to it. He's the founder of Pine Forest Media, a digital ecosystem of science and environmental storytelling. He interviews experts and action-takers across disciplines, translates their work, and packages it into digital products that are accessible, entry-level yet nuanced, globally distributed, and remind us of our own collective agency. He also travels to and reports from international scientific and environmental policy conferences around the world -- not on a legacy media salary, but because he decided that was the job.\n\nWhat he's really good at is building bridges between things one might not assume are connected. He is also really good at project management and reverse engineering a pathway toward whatever unachievable goal was his starting point. He also takes pride in having built something people want to be a part of. Coffee addict. Theatre kid. Gay.",
+    "website": "https://www.pineforestpods.com",
+    "linkedin": "https://www.linkedin.com/in/clark-marchese-579733196",
+    "email": "clark@pineforestpods.com",
+    "photo": "/photos/Clark.jpg",
+    "backgroundColor": "teal"
+  },
+  {
+    "id": "candice-grobler",
+    "name": "Candice Grobler",
+    "tagline": "Community Growth & Systems Strategist",
+    "quote": "\"You just can't leave things as they are, can you?\"",
+    "tags": ["advice & mentoring", "hire & collabs", "speaking gigs"],
+    "bio": "Cands is a systems-savvy entrepreneur driven by building actually impactful communities, so businesses can actually connect with their audiences while providing a channel for meaningful and collaborative product feedback and improvement.\n\nShe was retrenched during Covid, told by a well-meaning manager that she was unemployable, and decided to build something anyway. As a neurodiverse human navigating today's world, she's realised that the world was NOT made in a way that is inclusive and sustainable. And she's on a mission to help a million people become self-employed while serving their communities. Because self-empowerment is the first step towards being able to build a new world that ACTUALLY works for all of us, and our planet.\n\nCands' talks are candid, inspiring, and will leave you itching to tackle your dreams.",
+    "website": "https://www.candidcollab.com",
+    "linkedin": "https://www.linkedin.com/in/candid-cands",
+    "email": "consulting@candidcollab.com",
+    "photo": "/photos/Candice.png",
+    "backgroundColor": "indigo"
+  },
+  {
     "id": "jason-schneider",
     "name": "Jason Schneider",
     "tagline": "Altruistic Mischief Maker",

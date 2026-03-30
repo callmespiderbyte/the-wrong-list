@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import { Person } from '@/lib/types'
 import GradientBackground from './GradientBackground'
 import NavBar from './NavBar'
+import PolaroidPhoto from './PolaroidPhoto'
 import { getPeople } from '@/lib/people'
 
 interface ProfilePageProps {
@@ -102,21 +102,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
 
           {/* ── photo ── */}
           <div className="pf-photo">
-            <Image
-              src={person.photo}
-              alt={person.name}
-              width={400}
-              height={400}
-              style={{
-                display: 'block',
-                objectFit: 'cover',
-                width: '100%',
-                height: 'auto',
-                aspectRatio: '1/1',
-                boxShadow: '10px 10px 0px 0px white',
-              }}
-              priority
-            />
+            <PolaroidPhoto src={person.photo} alt={person.name} />
           </div>
 
           {/* ── bottom: bio + quote ── */}

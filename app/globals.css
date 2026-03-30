@@ -130,6 +130,11 @@ body {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Desktop open state — translateY = gap(10) + bar-height(3) = 13px */
+.hamburger-btn.is-open .hamburger-span--top { transform: translateY(13px) rotate(45deg); }
+.hamburger-btn.is-open .hamburger-span--mid { opacity: 0; }
+.hamburger-btn.is-open .hamburger-span--bot { transform: translateY(-13px) rotate(-45deg); }
+
 /* Tablet (≤ 768px) */
 @media (max-width: 768px) {
   .nav-brandmark {
@@ -144,6 +149,9 @@ body {
     width: 30px;
     height: 2px;
   }
+  /* translateY = gap(7) + bar-height(2) = 9px */
+  .hamburger-btn.is-open .hamburger-span--top { transform: translateY(9px) rotate(45deg); }
+  .hamburger-btn.is-open .hamburger-span--bot { transform: translateY(-9px) rotate(-45deg); }
 }
 
 /* Mobile (≤ 480px) */
@@ -160,6 +168,23 @@ body {
     width: 22px;
     height: 2px;
   }
+  /* translateY = gap(5) + bar-height(2) = 7px */
+  .hamburger-btn.is-open .hamburger-span--top { transform: translateY(7px) rotate(45deg); }
+  .hamburger-btn.is-open .hamburger-span--bot { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* Staggered directory row entrance */
+@keyframes rowEntrance {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Page transition wipe */
+@keyframes pageWipe {
+  0%   { transform: translateX(-101%); }
+  40%  { transform: translateX(0%); }
+  60%  { transform: translateX(0%); }
+  100% { transform: translateX(101%); }
 }
 
 /* Down arrow bounce */

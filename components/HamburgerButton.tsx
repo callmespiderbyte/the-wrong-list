@@ -10,7 +10,7 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
     <button
       onClick={onClick}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
-      className="hamburger-btn"
+      className={`hamburger-btn${isOpen ? ' is-open' : ''}`}
       style={{
         background: 'none',
         border: 'none',
@@ -22,24 +22,9 @@ export default function HamburgerButton({ isOpen, onClick }: HamburgerButtonProp
         flexShrink: 0,
       }}
     >
-      <span
-        className="hamburger-span"
-        style={{
-          transform: isOpen ? 'translateY(13px) rotate(45deg)' : 'none',
-        }}
-      />
-      <span
-        className="hamburger-span"
-        style={{
-          opacity: isOpen ? 0 : 1,
-        }}
-      />
-      <span
-        className="hamburger-span"
-        style={{
-          transform: isOpen ? 'translateY(-13px) rotate(-45deg)' : 'none',
-        }}
-      />
+      <span className="hamburger-span hamburger-span--top" />
+      <span className="hamburger-span hamburger-span--mid" />
+      <span className="hamburger-span hamburger-span--bot" />
     </button>
   )
 }

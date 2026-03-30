@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
+import PageTransition from '@/components/PageTransition'
 
 const healTheWeb = localFont({
   src: '../public/fonts/HealTheWebA-Regular.otf',
@@ -40,16 +41,27 @@ export default function RootLayout({
         >
           <defs>
             <filter id="grain">
+              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+              {/* @ts-expect-error SMIL animate not in React SVG types */}
               <feTurbulence
                 type="fractalNoise"
                 baseFrequency="0.65"
                 numOctaves="3"
                 stitchTiles="stitch"
-              />
+              >
+                <animate
+                  attributeName="seed"
+                  values="0;8;3;15;6;11;2;9;4;13;7;1;0"
+                  dur="1.4s"
+                  repeatCount="indefinite"
+                  calcMode="discrete"
+                />
+              </feTurbulence>
               <feColorMatrix type="saturate" values="0" />
             </filter>
           </defs>
         </svg>
+        <PageTransition />
         {children}
       </body>
     </html>

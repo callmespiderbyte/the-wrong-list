@@ -20,16 +20,32 @@ export default function GradientBackground({
   dominantColor = 'red',
 }: GradientBackgroundProps) {
   return (
-    <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        backgroundImage: `url(${backgroundImages[dominantColor]})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    />
+    <>
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: `url(${backgroundImages[dominantColor]})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      {/* Animated film grain overlay */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 2,
+          pointerEvents: 'none',
+          opacity: 0.07,
+          mixBlendMode: 'overlay',
+          filter: 'url(#grain)',
+          background: 'white',
+        }}
+      />
+    </>
   )
 }

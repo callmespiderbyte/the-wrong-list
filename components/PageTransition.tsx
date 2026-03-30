@@ -14,7 +14,7 @@ export default function PageTransition() {
         zIndex: 9998,
         pointerEvents: 'none',
         background: '#0A0A0A',
-        animation: 'pageWipe 0.55s cubic-bezier(0.76, 0, 0.24, 1) forwards',
+        animation: 'pageWipe 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards',
       }}
     />
   )

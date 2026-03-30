@@ -181,8 +181,6 @@ body {
 /* Page transition wipe */
 @keyframes pageWipe {
   0%   { transform: translateX(-101%); }
-  40%  { transform: translateX(0%); }
-  60%  { transform: translateX(0%); }
   100% { transform: translateX(101%); }
 }
 

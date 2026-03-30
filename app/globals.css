@@ -178,10 +178,10 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Page transition wipe */
-@keyframes pageWipe {
-  0%   { transform: translateX(-101%); }
-  100% { transform: translateX(101%); }
+/* Page transition dissolve */
+@keyframes pageFade {
+  0%   { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 /* Down arrow bounce */

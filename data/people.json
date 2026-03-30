@@ -65,6 +65,31 @@
     "backgroundColor": "indigo"
   },
   {
+    "id": "natasha-rajalingam",
+    "name": "Natasha Rajalingam",
+    "tagline": "Brand & Marketing Strategist | Zero BS",
+    "quote": "\"You ask too many questions.\"",
+    "tags": ["advice & mentoring", "email", "hire & collabs"],
+    "bio": "Natasha Rajalingam is a Brand & Marketing Strategist who helps ambitious, experience-led brands turn big ideas into clear, compelling and commercially effective strategy.\n\nWith a background spanning tourism, luxury travel and high-growth challenger brands, she works at the intersection of strategy, storytelling and execution, equally comfortable shaping direction as she is driving delivery.\n\nHer approach is grounded in understanding before action. She doesn't jump straight to outputs; she digs into the purpose, the context and the bigger picture, unpacking what's worked, what hasn't, and why.\n\nKnown for her sharp thinking and no-fluff style, Natasha partners closely with founders and teams to challenge assumptions, cut through noise and build brands that actually mean something.\n\nBecause the best work doesn't come from quick answers -- it comes from asking the right questions, and refusing to settle for surface-level solutions.",
+    "website": "https://www.seasuite.com.au",
+    "linkedin": "https://www.linkedin.com/in/natasharajalingam",
+    "email": "n@tasha.id.au",
+    "photo": "/photos/Natasha",
+    "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "lauren-dixon-paver",
+    "name": "Lauren Dixon-Paver",
+    "tagline": "Art Director & Stuff Maker",
+    "quote": "\"You're too silly, too loud, and too emotional. Just do it the way we've always done it.\"",
+    "tags": ["advice & mentoring", "email & linkedin", "hire & collabs"],
+    "bio": "Due to a tragic misreading of the 2001 cinematic masterpiece \"Josie and the Pussycats\", Lauren works in advertising.\n\nAs a Senior Social Art Director at Boundless, Lauren gets paid to be chronically online, make cool things and cause mischief.\n\nOutside of the office, Lauren likes to be chronically online, make cool things and cause mischief, but without fiscal compensation.",
+    "linkedin": "https://www.linkedin.com/in/lauren-dixon-paver-a52630101",
+    "email": "ldixonpaver@gmail.com",
+    "photo": "/photos/Lauren",
+    "backgroundColor": "light-blue"
+  },
+  {
     "id": "jason-schneider",
     "name": "Jason Schneider",
     "tagline": "Altruistic Mischief Maker",

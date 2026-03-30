@@ -41,8 +41,6 @@ export default function RootLayout({
         >
           <defs>
             <filter id="grain">
-              {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-              {/* @ts-expect-error SMIL animate not in React SVG types */}
               <feTurbulence
                 type="fractalNoise"
                 baseFrequency="0.65"

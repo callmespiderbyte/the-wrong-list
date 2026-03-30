@@ -54,7 +54,7 @@ body {
   cursor: pointer;
   transition: background-color 0.15s ease;
   display: grid;
-  grid-template-columns: 96px minmax(160px, 220px) 1fr auto;
+  grid-template-columns: 96px minmax(160px, 220px) 1fr minmax(0, 240px);
   grid-template-areas: "photo name quote tags";
   gap: 24px;
   align-items: center;
@@ -80,13 +80,12 @@ body {
   -webkit-box-orient: vertical;
 }
 
-/* Tags pills: right-aligned on desktop, single line */
+/* Tags pills: right-aligned on desktop, wraps if needed */
 .dr-tags-pills {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 4px;
   justify-content: flex-end;
-  max-width: 240px;
 }
 
 /* Section labels: hidden on desktop, shown on mobile */

@@ -22,7 +22,7 @@ const vanillaCreamOx = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'The Wrong List',
+  title: 'The Wrong List — A directory of unconventional professionals',
   description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
   openGraph: {
     title: 'The Wrong List',

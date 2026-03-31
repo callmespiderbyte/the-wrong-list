@@ -47,6 +47,7 @@ export default function HomePage() {
           style={{ height: 'auto', maxWidth: 'min(340px, 72vw)', opacity: 0.9 }}
           priority
         />
+        <span className="sr-only">Wrong by most standards, right by the ones that matter.</span>
 
         {/* Scroll-down arrow button */}
         <ScrollDownArrow />

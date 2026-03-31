@@ -23,7 +23,20 @@ const vanillaCreamOx = localFont({
 
 export const metadata: Metadata = {
   title: 'The Wrong List',
-  description: 'Wrong by most standards, right by the ones that matter.',
+  description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+  openGraph: {
+    title: 'The Wrong List',
+    description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+    url: 'https://thewronglist.com',
+    siteName: 'The Wrong List',
+    images: [{ url: '/assets/brandmark.svg' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Wrong List',
+    description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+  },
 }
 
 export default function RootLayout({

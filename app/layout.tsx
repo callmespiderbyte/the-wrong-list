@@ -29,13 +29,19 @@ export const metadata: Metadata = {
     description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
     url: 'https://thewronglist.com',
     siteName: 'The Wrong List',
-    images: [{ url: '/assets/brandmark.svg' }],
+    images: [{ url: 'https://www.thewronglist.com/assets/og-image.png', width: 1201, height: 631 }],
     type: 'website',
+  },
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Wrong List',
     description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+    images: ['https://www.thewronglist.com/assets/og-image.png'],
   },
 }
 

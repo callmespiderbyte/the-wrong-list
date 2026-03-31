@@ -38,6 +38,7 @@ export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
         alt={alt}
         width={400}
         height={400}
+        sizes="(max-width: 768px) 90vw, 400px"
         style={{
           display: 'block',
           objectFit: 'cover',

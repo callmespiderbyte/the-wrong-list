@@ -1,23 +1,20 @@
 import Image from 'next/image'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
-import ProfileRow from '@/components/ProfileRow'
+import ShuffledDirectory from '@/components/ShuffledDirectory'
 import GradientBackground from '@/components/GradientBackground'
 import ScrollDownArrow from '@/components/ScrollDownArrow'
 import ScrollDimmer from '@/components/ScrollDimmer'
 
-export const dynamic = 'force-dynamic'
-
 export default function HomePage() {
-  const allPeople = getPeople()
-  // Shuffle on every server render for discoverability
-  const people = [...allPeople].sort(() => Math.random() - 0.5)
+  const people = getPeople()
 
   return (
     <>
       <GradientBackground dominantColor="red" />
       <ScrollDimmer />
       <NavBar showLogoImmediately={false} navTint="red" people={people} />
+
 
       {/* Hero section */}
       <section
@@ -105,10 +102,8 @@ export default function HomePage() {
           </p>
         </div>
 
-        {/* Person rows */}
-        {people.map((person, index) => (
-          <ProfileRow key={person.id} person={person} index={index} />
-        ))}
+        {/* Person rows — shuffled client-side so page stays statically cached */}
+        <ShuffledDirectory people={people} />
 
         {/* Final bottom border */}
         <div

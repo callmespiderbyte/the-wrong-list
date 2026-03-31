@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 type DominantColor = 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue' | 'purple'
 
 interface GradientBackgroundProps {
@@ -11,7 +13,7 @@ const backgroundImages: Record<DominantColor, string> = {
   red:          '/assets/bg-red.png',
   teal:         '/assets/bg-red.png',       // legacy fallback
   indigo:       '/assets/bg-dark-blue.png', // legacy fallback
-  'light-blue': '/assets/bg-light-blue.png',
+  'light-blue': '/assets/bg-dark-blue.png', // fallback — no light-blue asset
   'dark-blue':  '/assets/bg-dark-blue.png',
   'purple':     '/assets/bg-purple.png',
 }
@@ -21,17 +23,17 @@ export default function GradientBackground({
 }: GradientBackgroundProps) {
   return (
     <>
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 0,
-          backgroundImage: `url(${backgroundImages[dominantColor]})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden' }}>
+        <Image
+          src={backgroundImages[dominantColor]}
+          alt=""
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
+        />
+      </div>
       {/* Animated film grain overlay */}
       <div
         aria-hidden="true"

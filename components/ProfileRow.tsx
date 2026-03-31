@@ -129,6 +129,7 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
             src={person.photo}
             alt={person.name}
             fill
+            sizes="260px"
             style={{ objectFit: 'cover' }}
           />
         </div>
@@ -147,6 +148,7 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
           alt={person.name}
           width={80}
           height={80}
+          sizes="80px"
           style={{ display: 'block', objectFit: 'cover', width: '80px', height: '80px' }}
         />
       </div>

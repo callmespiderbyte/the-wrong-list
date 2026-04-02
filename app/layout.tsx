@@ -43,6 +43,9 @@ export const metadata: Metadata = {
     description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
     images: ['https://www.thewronglist.com/assets/og-image.png'],
   },
+  alternates: {
+    canonical: 'https://thewronglist.com',
+  },
 }
 
 export default function RootLayout({

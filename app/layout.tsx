@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import PageTransition from '@/components/PageTransition'
+import Footer from '@/components/Footer'
 
 const healTheWeb = localFont({
   src: '../public/fonts/HealTheWebA-Regular.otf',
@@ -55,7 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${healTheWeb.variable} ${robotoMono.variable} ${vanillaCreamOx.variable}`}>
+      <body className={`${healTheWeb.variable} ${robotoMono.variable} ${vanillaCreamOx.variable}`} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         {/* Grain SVG filter — injected once, referenced globally */}
         <svg
           aria-hidden="true"
@@ -83,6 +84,7 @@ export default function RootLayout({
         </svg>
         <PageTransition />
         {children}
+        <Footer />
       </body>
     </html>
   )

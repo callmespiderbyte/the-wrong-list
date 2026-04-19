@@ -101,5 +101,88 @@
     "email": "jason@civicpossible.com",
     "photo": "/photos/Jason.png",
     "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "shea-karssing",
+    "name": "Shea Karssing",
+    "tagline": "Author, Writer, Serial Full-Time Job Avoider",
+    "quote": "\"You want to do too much. Find a job, focus, and work your way up.\"",
+    "tags": ["email & linkedin", "hire & collabs", "speaking gigs"],
+    "bio": "Shea Karssing is a writer based in the KZN Midlands. She is the author of 'Freelance Like a Boss', South Africa's first go-to guide for freelancers.\n\nAfter years of side-hustling alongside full-time jobs, Shea took the leap into full-time freelancing eight years ago and hasn't looked back. She's all about continually levelling up, refining her services, sharpening her skills, and helping others build successful, sustainable businesses.\n\nShea has a bachelor's degree in journalism from Rhodes University. She loves waking up every day, being her own boss, and wearing activewear exclusively.",
+    "website": "https://www.sheakarssing.com",
+    "linkedin": "https://www.linkedin.com/in/sheakarssing/",
+    "email": "shea@sheakarssing.com",
+    "photo": "/photos/Shea.jpg",
+    "backgroundColor": "teal"
+  },
+  {
+    "id": "patrick-vogel",
+    "name": "Patrick Vogel",
+    "tagline": "Creative Maniac / Artist / Founder ALT/SHIFT",
+    "quote": "\"You're too much. Calm down.\"",
+    "tags": ["advice & mentoring", "hire & collabs", "speaking gigs"],
+    "bio": "Patrick Vogel. Hamburg. Archviz studio. Collectible figures hidden around the city. A few apps. Some AI content. One very patient wife. Has ADHD, which means 14 projects at once and somehow all of them are kind of working. Doctors are baffled. So is he. Wakes up at 5am not because he's a morning person but because the day runs out too fast otherwise. Genuinely believes that the dumbest ideas are usually the best ones. Has enough evidence to be dangerous at dinner parties. Glad to be on this list. Slightly suspicious of anyone who isn't.",
+    "email": "patrick@altshift.de",
+    "photo": "/photos/Patrick.png",
+    "backgroundColor": "indigo"
+  },
+  {
+    "id": "kevin-lynch",
+    "name": "Kevin Lynch",
+    "tagline": "Proprietor",
+    "quote": "\"You're too irreverent to be taken seriously.\"",
+    "tags": ["linkedin", "speaking gigs", "virtual coffee chat"],
+    "bio": "Kevin Lynch is a Malmö, Sweden-based creative leader who most recently served as Creative Director at Oatly (the oat milk company, not the sunglasses one). While most of his career has been spent at creatively-driven advertising agencies in the US, Canada, and China, he's also served as the first director of marketing at China's oldest international school, Shanghai American School, and created side projects that attracted reactions ranging from adoration (Yearbnb) to death threats (Chicagoans for Rio).\n\nToday, Kevin serves as the creative director for Belgian-based pet food company Edgard & Cooper. When he's not busy there, he runs The Wrong Agency, a creative consultancy that probably no one will ever hire.",
+    "linkedin": "https://www.linkedin.com/in/themillionthkevinlynch/",
+    "email": "kevin@we-are-wrong.com",
+    "photo": "/photos/Kevin.png",
+    "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "alley-marsh",
+    "name": "Alley Marsh",
+    "tagline": "Chief Employee Happiness Officer",
+    "quote": "\"You're too loud, too emotional, and care about your job too much.\"",
+    "tags": ["advice & mentoring", "email & linkedin", "virtual coffee chat"],
+    "bio": "She is a Talent and People Partner who believes work is never just about work — it's about how people feel, grow, and show up. She focuses on building cultures where there is true psychological safety, pushing the businesses she works in to be better than the status quo — to actually walk the talk of what they say they care about.\n\nHer approach is intentionally human. She doesn't separate emotion from performance; she sees it as the driver of it. Where others might prioritise process, she pays attention to energy — what motivates people, what blocks them, and what makes teams actually thrive, not just function.\n\nShe has been told she is \"too loud,\" but she uses her voice to challenge thinking and advocate for better. She has been told she is \"too emotional,\" but that emotional intelligence is exactly what allows her to read a room, navigate complexity, and support people through change. She has been told she \"cares too much\" and \"takes work too seriously,\" but for her, that care is the work — it's what creates environments where people do their best and most meaningful work.\n\nShe doesn't believe in toning it down. She believes in using it well.",
+    "linkedin": "https://www.linkedin.com/in/alley-marsh",
+    "email": "Alleymarsh01@gmail.com",
+    "photo": "/photos/Alley.png",
+    "backgroundColor": "teal"
+  },
+  {
+    "id": "nicci-martin",
+    "name": "Nicci Martin",
+    "tagline": "Illustrator",
+    "quote": "\"You're a jack of all trades but a master of none.\"",
+    "tags": ["email", "hire & collabs"],
+    "bio": "Nicci Martin is a children's book illustrator who brings the cinematic eye of an animator and the strategic heart of an art director to the printed page. Nicci's creative journey has spanned motion design, advertising, and university lecture halls — a \"polylingual\" visual background that allows her to approach storytelling from every possible angle.\n\nWhat sets Nicci apart is a deep, humble curiosity for the craft. Rather than sticking to one formula, she draws on a massive toolkit gathered from years of mastering visual communication to build worlds that feel both structurally sound and full of life. Nicci doesn't just draw scenes; she directs them, ensuring every character beat and composition serves the heart of the story.\n\nThroughout Nicci's career, she was often called a \"jack of all trades and master of none.\" But in the world of children's publishing where one must be a world-builder, a designer and a character actor all at once, she has found that being a lifelong student of everything creative is exactly what the story requires.",
+    "email": "Niccimartinillustration@gmail.com",
+    "photo": "/photos/Nicci.png",
+    "backgroundColor": "indigo"
+  },
+  {
+    "id": "amanda-perino",
+    "name": "Amanda Perino",
+    "tagline": "Community Builder & Notorious Overthinker",
+    "quote": "\"You're overthinking this.\"",
+    "tags": ["linkedin", "speaking gigs", "virtual coffee chat"],
+    "bio": "Amanda is a community builder, event planner, and proud overthinker who has somehow turned spiraling late-night thoughts into a full-time skill set, despite literally every friend, family member, mentor, and surf instructor telling her to \"stop overthinking.\"\n\nAs the person behind the Rails Foundation, Amanda brings people together with a level of detail most would consider… excessive. But she considers: just right.\n\nWhen she can, she surfs. What she lacks in skill, she makes up for in enthusiasm on the water.",
+    "linkedin": "https://www.linkedin.com/in/amandabrookeperino/",
+    "email": "amandabperino@gmail.com",
+    "photo": "/photos/Amanda.png",
+    "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "zandile-darko",
+    "name": "Zandile Darko",
+    "tagline": "Theatre Maker and Director of All Kinds of Creative Processes",
+    "quote": "\"You need to pick your niche, you cannot be everything at once.\"",
+    "tags": ["advice & mentoring", "hire & collabs", "speaking gigs"],
+    "bio": "Zandile Darko is an Afro-German theatre maker, actress, writer, and physical performer based in Hamburg. She has performed at venues including Kampnagel Hamburg, Münchner Kammerspiele, Staatsschauspiel Dresden, and Maxim Gorki Theater, and her work has been supported by the BKM Hamburg, Hamburgische Kulturstiftung, and Alfred Toepfer Stiftung.\n\nShe studied cultural sciences at Leuphana University of Lüneburg and the University of Ghana, then trained in devised physical theatre at LISPA (London International School of Performing Arts) on an Alfred Toepfer Foundation scholarship. She went on to complete an MFA in acting at Rose Bruford College in London and an MA in Performance Practices at ArtEZ University of the Arts in the Netherlands — both on scholarship from the German Academic Scholarship Foundation. From 2010 to 2018 she was a member of Hajusom, the award-winning transnational art project based in Hamburg, and from 2010 to 2024 a member of Label Noir, an Afro-German performance network of theatre and filmmakers in Berlin. She is also one half of the international duo Wet Paint, which she co-founded with author and theatre maker Therese Ramstedt and brought to the Edinburgh Festival Fringe.\n\nIn her artistic practice, she searches for strategies that make space for layered, nuanced, and complex stories, voices, and temporalities. Her work spans performance, mask play, video art, writing, and speculative fiction — often at the intersection of movement, memory, and postcolonial inquiry. Her bachelor's thesis asked to what extent performances can provide a critical counterstatement to official German colonial historiography — a thread that continues to run through her work today. Beyond the stage, she guides people to become aware of the patterns held in their bodies, helping them shift those patterns and move through life with more ease.",
+    "website": "https://www.zandiledarko.com",
+    "email": "info@zandiledarko.com",
+    "photo": "/photos/Zandile",
+    "backgroundColor": "teal"
   }
 ]

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
-import ShuffledDirectory from '@/components/ShuffledDirectory'
+import ShuffledCards from '@/components/ShuffledCards'
 import GradientBackground from '@/components/GradientBackground'
 import ScrollDownArrow from '@/components/ScrollDownArrow'
 import ScrollDimmer from '@/components/ScrollDimmer'
@@ -65,53 +65,8 @@ export default function HomePage() {
           paddingBottom: '80px',
         }}
       >
-        {/* Section heading — hidden on mobile via .directory-header */}
-        <div
-          className="directory-header"
-          style={{
-            borderBottom: '1px solid rgba(242, 237, 228, 0.2)',
-            paddingBottom: '12px',
-            marginBottom: '0px',
-            gridTemplateColumns: '96px minmax(160px, 220px) 1fr auto',
-            gap: '24px',
-          }}
-        >
-          <div />
-          <div />
-          <p
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'rgba(242, 237, 228, 0.4)',
-            }}
-          >
-            people always told me:
-          </p>
-          <p
-            style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'rgba(242, 237, 228, 0.4)',
-              textAlign: 'right',
-            }}
-          >
-            Open to / available for:
-          </p>
-        </div>
-
-        {/* Person rows — shuffled client-side so page stays statically cached */}
-        <ShuffledDirectory people={people} />
-
-        {/* Final bottom border */}
-        <div
-          style={{
-            borderBottom: '1px solid rgba(242, 237, 228, 0.2)',
-          }}
-        />
+        {/* Cards — shuffled client-side so page stays statically cached */}
+        <ShuffledCards people={people} />
       </section>
     </>
   )

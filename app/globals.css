@@ -235,13 +235,14 @@ body {
   width: 44px;
   height: 3px;
   background-color: #F2EDE4;
+  border-radius: 2px;
   transform-origin: center;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* Desktop open state — translateY = gap(10) + bar-height(3) = 13px */
 .hamburger-btn.is-open .hamburger-span--top { transform: translateY(13px) rotate(45deg); }
-.hamburger-btn.is-open .hamburger-span--mid { opacity: 0; }
+.hamburger-btn.is-open .hamburger-span--mid { opacity: 0; transform: scaleX(0); }
 .hamburger-btn.is-open .hamburger-span--bot { transform: translateY(-13px) rotate(-45deg); }
 
 /* Tablet (≤ 768px) */

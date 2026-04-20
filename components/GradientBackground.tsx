@@ -34,7 +34,7 @@ export default function GradientBackground({
           style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
       </div>
-      {/* Animated film grain overlay */}
+      {/* Static film grain overlay (no mix-blend-mode for Safari perf) */}
       <div
         aria-hidden="true"
         style={{
@@ -42,8 +42,7 @@ export default function GradientBackground({
           inset: 0,
           zIndex: 2,
           pointerEvents: 'none',
-          opacity: 0.07,
-          mixBlendMode: 'overlay',
+          opacity: 0.12,
           filter: 'url(#grain)',
           background: 'white',
         }}

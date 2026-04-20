@@ -69,15 +69,7 @@ export default function RootLayout({
                 baseFrequency="0.65"
                 numOctaves="3"
                 stitchTiles="stitch"
-              >
-                <animate
-                  attributeName="seed"
-                  values="0;8;3;15;6;11;2;9;4;13;7;1;0"
-                  dur="1.4s"
-                  repeatCount="indefinite"
-                  calcMode="discrete"
-                />
-              </feTurbulence>
+              />
               <feColorMatrix type="saturate" values="0" />
             </filter>
           </defs>

@@ -65,12 +65,11 @@ body {
   outline: none;
 }
 
-/* Share button anchor (bottom right of card) */
+/* Share button — sits below tags, aligned right */
 .pc-share {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 .share-menu-wrapper {

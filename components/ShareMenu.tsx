@@ -7,16 +7,26 @@ const SITE_URL = 'https://thewronglist.com'
 
 interface ShareMenuProps {
   person: Person
-  cardRef: React.RefObject<HTMLDivElement>
 }
 
-export default function ShareMenu({ person, cardRef }: ShareMenuProps) {
+export default function ShareMenu({ person }: ShareMenuProps) {
   const [open, setOpen] = useState(false)
   const [busy, setBusy] = useState(false)
+  const [hasCard, setHasCard] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   const profileUrl = `${SITE_URL}/people/${person.id}`
-  const shareText = `${person.name} is on The Wrong List — ${person.quote}`
+  const cardUrl = `/share-cards/${person.id}.png`
+
+  // Probe for a pre-generated share card; gracefully degrade to URL-only sharing
+  // if it's missing (e.g., new profile not yet shot).
+  useEffect(() => {
+    let cancelled = false
+    fetch(cardUrl, { method: 'HEAD' })
+      .then((r) => { if (!cancelled) setHasCard(r.ok) })
+      .catch(() => { if (!cancelled) setHasCard(false) })
+    return () => { cancelled = true }
+  }, [cardUrl])
 
   // Close on outside click
   useEffect(() => {
@@ -30,23 +40,21 @@ export default function ShareMenu({ person, cardRef }: ShareMenuProps) {
     return () => document.removeEventListener('mousedown', onDocClick)
   }, [open])
 
-  async function captureCard(): Promise<Blob | null> {
-    if (!cardRef.current) return null
-    const html2canvas = (await import('html2canvas')).default
-    const canvas = await html2canvas(cardRef.current, {
-      backgroundColor: '#7B0D1E',
-      scale: 2,
-      useCORS: true,
-      logging: false,
-    })
-    return new Promise((resolve) => canvas.toBlob((b) => resolve(b), 'image/png'))
+  async function fetchCardBlob(): Promise<Blob | null> {
+    try {
+      const res = await fetch(cardUrl)
+      if (!res.ok) return null
+      return await res.blob()
+    } catch {
+      return null
+    }
   }
 
   async function handleDownload(e: React.MouseEvent) {
     e.stopPropagation()
     setBusy(true)
     try {
-      const blob = await captureCard()
+      const blob = await fetchCardBlob()
       if (!blob) return
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
@@ -66,21 +74,24 @@ export default function ShareMenu({ person, cardRef }: ShareMenuProps) {
     e.stopPropagation()
     setBusy(true)
     try {
-      const blob = await captureCard()
-      if (!blob) return
-      const file = new File([blob], `${person.id}-wronglist.png`, { type: 'image/png' })
-      const shareData: ShareData = {
+      const baseData: ShareData = {
         title: `${person.name} on The Wrong List`,
-        text: shareText,
         url: profileUrl,
-        files: [file],
       }
-      if (navigator.canShare && navigator.canShare(shareData)) {
-        await navigator.share(shareData)
-      } else {
-        // Fallback: share without the file
-        await navigator.share({ title: shareData.title, text: shareData.text, url: shareData.url })
+
+      if (hasCard) {
+        const blob = await fetchCardBlob()
+        if (blob) {
+          const file = new File([blob], `${person.id}-wronglist.png`, { type: 'image/png' })
+          const withFile: ShareData = { ...baseData, files: [file] }
+          if (navigator.canShare && navigator.canShare(withFile)) {
+            await navigator.share(withFile)
+            return
+          }
+        }
       }
+
+      await navigator.share(baseData)
     } catch {
       // user cancelled or unsupported — silently ignore
     } finally {
@@ -89,17 +100,10 @@ export default function ShareMenu({ person, cardRef }: ShareMenuProps) {
     }
   }
 
-  function openShareUrl(url: string, e: React.MouseEvent) {
-    e.stopPropagation()
-    window.open(url, '_blank', 'noopener,noreferrer')
-    setOpen(false)
-  }
-
-  const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(profileUrl)}`
-  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(profileUrl)}`
-  const blueskyUrl = `https://bsky.app/intent/compose?text=${encodeURIComponent(`${shareText} ${profileUrl}`)}`
-
   const hasNativeShare = typeof navigator !== 'undefined' && !!navigator.share
+
+  // Nothing to offer — hide the share button entirely
+  if (!hasCard && !hasNativeShare) return null
 
   return (
     <div ref={menuRef} className="share-menu-wrapper">
@@ -117,24 +121,16 @@ export default function ShareMenu({ person, cardRef }: ShareMenuProps) {
 
       {open && (
         <div className="share-popover" onClick={(e) => e.stopPropagation()}>
-          <button type="button" className="share-item" onClick={handleDownload} disabled={busy}>
-            {busy ? 'preparing…' : 'save card image'}
-          </button>
+          {hasCard && (
+            <button type="button" className="share-item" onClick={handleDownload} disabled={busy}>
+              {busy ? 'preparing…' : 'save card image'}
+            </button>
+          )}
           {hasNativeShare && (
             <button type="button" className="share-item" onClick={handleNativeShare} disabled={busy}>
               {busy ? 'preparing…' : 'share…'}
             </button>
           )}
-          <div className="share-divider" />
-          <button type="button" className="share-item" onClick={(e) => openShareUrl(xUrl, e)}>
-            share on X
-          </button>
-          <button type="button" className="share-item" onClick={(e) => openShareUrl(linkedinUrl, e)}>
-            share on LinkedIn
-          </button>
-          <button type="button" className="share-item" onClick={(e) => openShareUrl(blueskyUrl, e)}>
-            share on Bluesky
-          </button>
         </div>
       )}
     </div>

@@ -61,7 +61,6 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 fontWeight: 400,
                 letterSpacing: '0.04em',
                 marginBottom: '20px',
-                textTransform: 'lowercase',
                 marginLeft: '20px',
               }}
             >

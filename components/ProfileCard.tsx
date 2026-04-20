@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Person } from '@/lib/types'
+import ShareMenu from './ShareMenu'
 
 const SCRAMBLE_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const SCRAMBLE_LOWER = 'abcdefghijklmnopqrstuvwxyz'
@@ -66,6 +67,13 @@ function useScrollScramble(text: string) {
 export default function ProfileCard({ person, index }: { person: Person; index: number }) {
   const router = useRouter()
   const { display: scrambledName, ref: scrambleRef } = useScrollScramble(person.name)
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  // Merge scramble ref and card ref onto the same element
+  const setRefs = (node: HTMLDivElement | null) => {
+    ;(cardRef as React.MutableRefObject<HTMLDivElement | null>).current = node
+    ;(scrambleRef as React.MutableRefObject<HTMLDivElement | null>).current = node
+  }
 
   function handleClick() {
     router.push(`/people/${person.id}`)
@@ -85,7 +93,7 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
       onKeyDown={handleKeyDown}
       role="link"
       tabIndex={0}
-      ref={scrambleRef}
+      ref={setRefs}
       style={{
         animation: 'rowEntrance 0.45s ease both',
         animationDelay: `${Math.min(index * 45, 500)}ms`,
@@ -129,6 +137,11 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
           </div>
         </div>
 
+      </div>
+
+      {/* Share button — bottom right */}
+      <div className="pc-share" data-html2canvas-ignore>
+        <ShareMenu person={person} cardRef={cardRef} />
       </div>
     </div>
   )

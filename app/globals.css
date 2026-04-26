@@ -295,6 +295,9 @@ body {
   height: 48px;
 }
 
+/* Hamburger wrapper — right margin mirrors vertical centering gap */
+.nav-hamburger-wrapper { margin-right: 4px; }
+
 /* Hamburger button — desktop default */
 .hamburger-btn {
   gap: 10px;
@@ -320,6 +323,7 @@ body {
 
 /* Tablet (≤ 768px) */
 @media (max-width: 768px) {
+  .nav-hamburger-wrapper { margin-right: 13px; }
   .nav-brandmark {
     height: 34px;
   }
@@ -339,6 +343,7 @@ body {
 
 /* Mobile (≤ 480px) */
 @media (max-width: 480px) {
+  .nav-hamburger-wrapper { margin-right: 18px; }
   .nav-brandmark {
     height: 26px;
   }

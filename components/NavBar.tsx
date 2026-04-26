@@ -115,8 +115,8 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           </div>
         )}
 
-        {/* Hamburger — always interactive, flush right */}
-        <div style={{ pointerEvents: 'auto' }}>
+        {/* Hamburger — always interactive, spaced from right edge */}
+        <div className="nav-hamburger-wrapper" style={{ pointerEvents: 'auto' }}>
           <HamburgerButton isOpen={menuOpen} onClick={handleMenuToggle} />
         </div>
       </header>

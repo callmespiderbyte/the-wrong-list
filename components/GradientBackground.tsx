@@ -10,12 +10,12 @@ interface GradientBackgroundProps {
 
 // Maps each color key to its background image file in /public/assets/
 const backgroundImages: Record<DominantColor, string> = {
-  red:          '/assets/bg-red.png',
-  teal:         '/assets/bg-red.png',       // legacy fallback
-  indigo:       '/assets/bg-dark-blue.png', // legacy fallback
-  'light-blue': '/assets/bg-dark-blue.png', // fallback — no light-blue asset
-  'dark-blue':  '/assets/bg-dark-blue.png',
-  'purple':     '/assets/bg-purple.png',
+  red:          '/assets/bg-red.webp',
+  teal:         '/assets/bg-red.webp',       // legacy fallback
+  indigo:       '/assets/bg-dark-blue.webp', // legacy fallback
+  'light-blue': '/assets/bg-dark-blue.webp', // fallback — no light-blue asset
+  'dark-blue':  '/assets/bg-dark-blue.webp',
+  'purple':     '/assets/bg-purple.webp',
 }
 
 export default function GradientBackground({

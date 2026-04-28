@@ -9,15 +9,6 @@ interface GradientBackgroundProps {
   dominantColor?: DominantColor
 }
 
-const pngSources: Record<DominantColor, string> = {
-  red:          '/assets/bg-red.png',
-  teal:         '/assets/bg-red.png',
-  indigo:       '/assets/bg-dark-blue.png',
-  'light-blue': '/assets/bg-dark-blue.png',
-  'dark-blue':  '/assets/bg-dark-blue.png',
-  purple:       '/assets/bg-purple.png',
-}
-
 const webpSources: Record<DominantColor, string> = {
   red:          '/assets/bg-red.webp',
   teal:         '/assets/bg-red.webp',
@@ -31,60 +22,46 @@ const MIN_BLUR_MS = 5000
 const FADE_MS = 800
 
 export default function GradientBackground({ dominantColor = 'red' }: GradientBackgroundProps) {
-  const [showSharp, setShowSharp] = useState(false)
-  const webpLoadedRef = useRef(false)
+  const [sharp, setSharp] = useState(false)
+  const loadedRef = useRef(false)
   const timerFiredRef = useRef(false)
 
   useEffect(() => {
-    setShowSharp(false)
-    webpLoadedRef.current = false
+    setSharp(false)
+    loadedRef.current = false
     timerFiredRef.current = false
 
     const t = setTimeout(() => {
       timerFiredRef.current = true
-      if (webpLoadedRef.current) setShowSharp(true)
+      if (loadedRef.current) setSharp(true)
     }, MIN_BLUR_MS)
 
     return () => clearTimeout(t)
   }, [dominantColor])
 
-  function handleWebpLoad() {
-    webpLoadedRef.current = true
-    if (timerFiredRef.current) setShowSharp(true)
+  function handleLoad() {
+    loadedRef.current = true
+    if (timerFiredRef.current) setSharp(true)
   }
 
   return (
     <>
       <div style={{ position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden' }}>
-        {/* PNG — loads fast, intentionally blurred as placeholder */}
         <Image
-          src={pngSources[dominantColor]}
+          src={webpSources[dominantColor]}
           alt=""
           fill
           priority
           quality={85}
           sizes="100vw"
+          onLoad={handleLoad}
           style={{
             objectFit: 'cover',
             objectPosition: 'center',
-            filter: 'blur(12px)',
-            transform: 'scale(1.06)',
+            filter: sharp ? 'blur(0px)' : 'blur(16px)',
+            transform: sharp ? 'scale(1)' : 'scale(1.06)',
+            transition: `filter ${FADE_MS}ms ease, transform ${FADE_MS}ms ease`,
           }}
-        />
-        {/* WebP — fades in once loaded and MIN_BLUR_MS has elapsed */}
-        <Image
-          src={webpSources[dominantColor]}
-          alt=""
-          fill
-          quality={85}
-          sizes="100vw"
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-            opacity: showSharp ? 1 : 0,
-            transition: `opacity ${FADE_MS}ms ease`,
-          }}
-          onLoad={handleWebpLoad}
         />
       </div>
       {/* Static film grain overlay */}

@@ -195,6 +195,10 @@ export default function PressPage() {
               <DownloadIcon />
               Download logo assets
             </a>
+            <a href="/press/TheWrongList_SocialImages.zip" download className="press-dl-secondary">
+              <DownloadIcon />
+              Download share images
+            </a>
           </div>
 
           {/* Contact */}

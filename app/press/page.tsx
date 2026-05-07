@@ -57,7 +57,6 @@ export default function PressPage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center',
           paddingLeft: 'clamp(32px, 8vw, 120px)',
           paddingRight: 'clamp(32px, 8vw, 120px)',
           paddingTop: '160px',
@@ -66,7 +65,7 @@ export default function PressPage() {
           zIndex: 1,
         }}
       >
-        <div style={{ maxWidth: '600px' }}>
+        <div style={{ maxWidth: '600px', width: '100%', margin: '0 auto' }}>
 
           <p
             style={{

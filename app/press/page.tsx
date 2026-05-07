@@ -57,6 +57,7 @@ export default function PressPage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
           paddingLeft: 'clamp(32px, 8vw, 120px)',
           paddingRight: 'clamp(32px, 8vw, 120px)',
           paddingTop: '160px',

@@ -5,6 +5,7 @@ import ShuffledCards from '@/components/ShuffledCards'
 import GradientBackground from '@/components/GradientBackground'
 import ScrollDownArrow from '@/components/ScrollDownArrow'
 import ScrollDimmer from '@/components/ScrollDimmer'
+import TaglineBanner from '@/components/TaglineBanner'
 
 export default function HomePage() {
   const people = getPeople()
@@ -53,9 +54,11 @@ export default function HomePage() {
         <ScrollDownArrow />
       </section>
 
+      {/* Tagline banner */}
+      <TaglineBanner quotes={people.map(p => p.quote)} />
+
       {/* Directory section */}
       <section
-        id="directory"
         style={{
           position: 'relative',
           zIndex: 1,

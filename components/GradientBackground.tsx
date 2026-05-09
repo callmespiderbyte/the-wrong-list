@@ -28,19 +28,19 @@ export default function GradientBackground({ dominantColor = 'red' }: GradientBa
           sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
+        <div
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            pointerEvents: 'none',
+            opacity: 0.60,
+            filter: 'url(#grain)',
+            background: 'black',
+            mixBlendMode: 'overlay',
+          }}
+        />
       </div>
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'fixed',
-          inset: 0,
-          zIndex: 2,
-          pointerEvents: 'none',
-          opacity: 0.12,
-          filter: 'url(#grain)',
-          background: 'white',
-        }}
-      />
     </>
   )
 }

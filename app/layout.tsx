@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
+import ProductHuntPopup from '@/components/ProductHuntPopup'
 
 const healTheWeb = localFont({
   src: '../public/fonts/HealTheWebA-Regular.otf',
@@ -77,6 +78,7 @@ export default function RootLayout({
         <PageTransition />
         {children}
         <Footer />
+        <ProductHuntPopup />
       </body>
     </html>
   )

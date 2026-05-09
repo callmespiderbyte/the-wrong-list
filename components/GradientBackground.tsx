@@ -1,6 +1,3 @@
-'use client'
-
-import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 type DominantColor = 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue' | 'purple'
@@ -18,32 +15,7 @@ const webpSources: Record<DominantColor, string> = {
   purple:       '/assets/bg-purple.webp',
 }
 
-const MIN_BLUR_MS = 5000
-const FADE_MS = 800
-
 export default function GradientBackground({ dominantColor = 'red' }: GradientBackgroundProps) {
-  const [sharp, setSharp] = useState(false)
-  const loadedRef = useRef(false)
-  const timerFiredRef = useRef(false)
-
-  useEffect(() => {
-    setSharp(false)
-    loadedRef.current = false
-    timerFiredRef.current = false
-
-    const t = setTimeout(() => {
-      timerFiredRef.current = true
-      if (loadedRef.current) setSharp(true)
-    }, MIN_BLUR_MS)
-
-    return () => clearTimeout(t)
-  }, [dominantColor])
-
-  function handleLoad() {
-    loadedRef.current = true
-    if (timerFiredRef.current) setSharp(true)
-  }
-
   return (
     <>
       <div style={{ position: 'fixed', inset: 0, zIndex: 0, overflow: 'hidden' }}>
@@ -54,17 +26,9 @@ export default function GradientBackground({ dominantColor = 'red' }: GradientBa
           priority
           quality={85}
           sizes="100vw"
-          onLoad={handleLoad}
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-            filter: sharp ? 'blur(0px)' : 'blur(16px)',
-            transform: sharp ? 'scale(1)' : 'scale(1.06)',
-            transition: `filter ${FADE_MS}ms ease, transform ${FADE_MS}ms ease`,
-          }}
+          style={{ objectFit: 'cover', objectPosition: 'center' }}
         />
       </div>
-      {/* Static film grain overlay */}
       <div
         aria-hidden="true"
         style={{

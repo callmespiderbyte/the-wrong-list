@@ -1,7 +1,14 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
 import GradientBackground from '@/components/GradientBackground'
+
+export const metadata: Metadata = {
+  title: 'About The Wrong List — Why Being Wrong Is Right',
+  description: "Wrong* isn't an insult — it's a footnote. A directory of people told they didn't fit, who built something worth paying attention to. The asterisk explains.",
+  alternates: { canonical: '/about' },
+}
 
 export default function AboutPage() {
   const people = getPeople()
@@ -72,7 +79,7 @@ export default function AboutPage() {
               marginBottom: '20px',
             }}
           >
-            The Wrong* List is a curated, invite-only directory of people who got somewhere interesting by ignoring the status quo.
+            The Wrong* List is a curated, invite-only directory of unconventional professionals who got somewhere interesting by ignoring the status quo.
           </p>
           <p
             className="about-body-text"
@@ -108,7 +115,7 @@ export default function AboutPage() {
               marginBottom: '20px',
             }}
           >
-            The people on this list were told to specialise, to tone it down, to pick a lane, to be more realistic. They were &ldquo;too much&rdquo;, &ldquo;too loud&rdquo;, &ldquo;too ambitious&rdquo;&hellip; and they went their own way anyway. What makes them worth paying attention to isn&rsquo;t just what they do now, but what they chose not to do back then.
+            The people on this list were told to specialise, to tone it down, to pick a lane, to be more realistic. The creative freelancers, the multi-hyphenates, the ones who were &ldquo;too much&rdquo;, &ldquo;too loud&rdquo;, &ldquo;too ambitious&rdquo;&hellip; and they went their own way anyway. What makes them worth paying attention to isn&rsquo;t just what they do now, but what they chose not to do back then.
           </p>
           <p
             className="about-body-text"

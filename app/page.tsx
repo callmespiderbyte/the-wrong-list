@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
@@ -7,11 +8,35 @@ import ScrollDownArrow from '@/components/ScrollDownArrow'
 import ScrollDimmer from '@/components/ScrollDimmer'
 import TaglineBanner from '@/components/TaglineBanner'
 
+export const metadata: Metadata = {
+  title: 'The Wrong List — A Directory of Unconventional Professionals',
+  description: 'A hand-picked, invite-only curated directory of unconventional professionals who were told they were too much. Browse the people who proved that wrong.',
+  alternates: { canonical: '/' },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'The Wrong List',
+  url: 'https://thewronglist.com',
+}
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'The Wrong List',
+  url: 'https://thewronglist.com',
+  logo: 'https://thewronglist.com/assets/brandmark.svg',
+  description: 'A hand-picked, invite-only directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+}
+
 export default function HomePage() {
   const people = getPeople()
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <GradientBackground dominantColor="red" />
       <ScrollDimmer />
       <NavBar showLogoImmediately={false} navTint="red" people={people} />
@@ -31,9 +56,10 @@ export default function HomePage() {
           gap: '32px',
         }}
       >
+        <h1 className="sr-only">The Wrong List — A Directory of Unconventional Professionals</h1>
         <Image
           src="/assets/wordmark.svg"
-          alt="The Wrong List"
+          alt=""
           width={424}
           height={243}
           style={{ height: 'auto', maxWidth: 'min(360px, 65vw)' }}

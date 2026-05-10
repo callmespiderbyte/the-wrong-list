@@ -1,7 +1,14 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
 import GradientBackground from '@/components/GradientBackground'
+
+export const metadata: Metadata = {
+  title: 'About — The Wrong List',
+  description: 'The Wrong List is a curated, invite-only directory of people who got somewhere interesting by ignoring the status quo. Every person here chose to be here.',
+  alternates: { canonical: '/about' },
+}
 
 export default function AboutPage() {
   const people = getPeople()

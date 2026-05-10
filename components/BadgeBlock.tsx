@@ -75,7 +75,32 @@ export default function BadgeBlock({ label, src, snippet, previewWidth, darkPrev
           padding: '8px 12px',
           display: 'flex',
           justifyContent: 'flex-end',
+          gap: '8px',
         }}>
+          <a
+            href={src}
+            download
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(242, 237, 228, 0.3)',
+              color: 'rgba(242, 237, 228, 0.5)',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.65rem',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              padding: '5px 12px',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              whiteSpace: 'nowrap',
+              transition: 'color 0.15s ease, border-color 0.15s ease',
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.7)'; e.currentTarget.style.color = 'rgba(242, 237, 228, 0.9)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.3)'; e.currentTarget.style.color = 'rgba(242, 237, 228, 0.5)' }}
+          >
+            Download
+          </a>
           <button
             onClick={copy}
             style={{
@@ -91,8 +116,8 @@ export default function BadgeBlock({ label, src, snippet, previewWidth, darkPrev
               transition: 'color 0.15s ease, border-color 0.15s ease',
               whiteSpace: 'nowrap',
             }}
-            onMouseEnter={e => { if (!copied) (e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.7)') }}
-            onMouseLeave={e => { if (!copied) (e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.3)') }}
+            onMouseEnter={e => { if (!copied) { e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.7)'; e.currentTarget.style.color = 'rgba(242, 237, 228, 0.9)' } }}
+            onMouseLeave={e => { if (!copied) { e.currentTarget.style.borderColor = 'rgba(242, 237, 228, 0.3)'; e.currentTarget.style.color = 'rgba(242, 237, 228, 0.5)' } }}
           >
             {copied ? 'Copied!' : 'Copy'}
           </button>

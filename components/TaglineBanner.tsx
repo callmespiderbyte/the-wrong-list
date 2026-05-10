@@ -41,11 +41,11 @@ export default function TaglineBanner({ quotes }: { quotes: string[] }) {
           width: '100%',
           border: '1px solid rgba(242, 237, 228, 0.5)',
           background: 'transparent',
-          height: '120px',
+          minHeight: '120px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '0 48px',
+          padding: '24px clamp(16px, 4vw, 48px)',
         }}
       >
         <p

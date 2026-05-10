@@ -49,6 +49,9 @@ export default function Footer() {
           <a href="mailto:design@jomiro.de?subject=Nomination%20for%20The%20Wrong*%20List" className="footer-link">
             Nominate someone
           </a>
+          <Link href="/manifesto" className="footer-link">
+            Manifesto
+          </Link>
           <Link href="/press" className="footer-link">
             Press
           </Link>

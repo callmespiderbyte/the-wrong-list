@@ -65,5 +65,20 @@ export default async function PersonPage({ params }: PageProps) {
     notFound()
   }
 
-  return <ProfilePage person={person} />
+  const sameAs = [person.website, person.linkedin].filter(Boolean)
+  const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: person.name,
+    jobTitle: person.tagline,
+    url: `${SITE_URL}/people/${person.id}`,
+    ...(sameAs.length > 0 && { sameAs }),
+  }
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
+      <ProfilePage person={person} />
+    </>
+  )
 }

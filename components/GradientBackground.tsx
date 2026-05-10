@@ -8,7 +8,7 @@ interface GradientBackgroundProps {
 
 const webpSources: Record<DominantColor, string> = {
   red:          '/assets/bg-red.webp',
-  teal:         '/assets/bg-red.webp',
+  teal:         '/assets/bg-dark-blue.webp',
   indigo:       '/assets/bg-dark-blue.webp',
   'light-blue': '/assets/bg-dark-blue.webp',
   'dark-blue':  '/assets/bg-dark-blue.webp',

@@ -418,7 +418,7 @@ body {
   padding: 0;
   color: #F2EDE4;
   font-family: var(--font-heal);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   position: relative;

@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react'
 
 const STORAGE_KEY = 'ph_popup_seen'
+const GAP = 20
 
 export default function ProductHuntPopup() {
   const [visible, setVisible] = useState(false)
+  const [bottom, setBottom] = useState(GAP)
 
   useEffect(() => {
     if (typeof localStorage === 'undefined') return
@@ -13,6 +15,24 @@ export default function ProductHuntPopup() {
     const t = setTimeout(() => setVisible(true), 2500)
     return () => clearTimeout(t)
   }, [])
+
+  useEffect(() => {
+    if (!visible) return
+    function updateBottom() {
+      const footer = document.getElementById('site-footer')
+      if (!footer) return
+      const footerTop = footer.getBoundingClientRect().top
+      const pushed = window.innerHeight - footerTop + GAP
+      setBottom(pushed > GAP ? pushed : GAP)
+    }
+    updateBottom()
+    window.addEventListener('scroll', updateBottom, { passive: true })
+    window.addEventListener('resize', updateBottom, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', updateBottom)
+      window.removeEventListener('resize', updateBottom)
+    }
+  }, [visible])
 
   function dismiss() {
     localStorage.setItem(STORAGE_KEY, '1')
@@ -26,7 +46,6 @@ export default function ProductHuntPopup() {
       <style>{`
         .ph-popup {
           position: fixed;
-          bottom: 20px;
           right: 20px;
           z-index: 9999;
           background: #000;
@@ -70,12 +89,11 @@ export default function ProductHuntPopup() {
         @media (max-width: 400px) {
           .ph-popup {
             width: calc(100vw - 32px);
-            bottom: 16px;
             right: 16px;
           }
         }
       `}</style>
-      <div className="ph-popup" role="dialog" aria-label="Product Hunt">
+      <div className="ph-popup" style={{ bottom }} role="dialog" aria-label="Product Hunt">
         <div className="ph-popup-header">
           <p className="ph-popup-text">
             We&rsquo;re on Product Hunt. If this resonates with you, an upvote would really mean the world.

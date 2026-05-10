@@ -21,6 +21,7 @@ export default function Footer() {
         }
       `}</style>
       <footer
+        id="site-footer"
         style={{
           backgroundColor: '#000',
           color: '#fff',

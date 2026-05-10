@@ -442,6 +442,44 @@ body {
   transform: scaleX(1);
 }
 
+/* Desktop inline nav links */
+.nav-desktop-links {
+  display: none;
+  align-items: center;
+  gap: 32px;
+  margin-right: 32px;
+}
+
+.nav-inline-link {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 228, 0.65);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.nav-inline-link:hover { color: rgba(242, 237, 228, 1); }
+
+.nav-inline-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  color: rgba(242, 237, 228, 0.65);
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.nav-inline-btn:hover { color: rgba(242, 237, 228, 1); }
+
+@media (min-width: 769px) {
+  .nav-desktop-links { display: flex; }
+  .nav-hamburger-wrapper { display: none; }
+}
+
 /* HOME nav link */
 .nav-home-link {
   font-family: var(--font-vanilla), serif;

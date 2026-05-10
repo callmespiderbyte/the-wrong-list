@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import HamburgerButton from './HamburgerButton'
 import MenuOverlay from './MenuOverlay'
 import { Person } from '@/lib/types'
@@ -12,23 +13,14 @@ const NAV_HEIGHT = 80
 interface NavBarProps {
   showLogoImmediately: boolean
   people: Person[]
-  navTint?: string // kept for prop-compatibility, no longer used
+  navTint?: string
 }
 
 export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [menuContentVisible, setMenuContentVisible] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const router = useRouter()
 
-  // Scroll-triggered bar visibility — appears on scroll, hides when back at top
-  useEffect(() => {
-    setScrolled(false)
-    const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Delay menu content until the black bar has expanded
   useEffect(() => {
     if (menuOpen) {
       const t = setTimeout(() => setMenuContentVisible(true), 280)
@@ -38,17 +30,18 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
     }
   }, [menuOpen])
 
-  function handleMenuToggle() {
-    setMenuOpen((prev) => !prev)
-  }
+  function handleMenuToggle() { setMenuOpen(prev => !prev) }
+  function handleMenuClose() { setMenuOpen(false) }
 
-  function handleMenuClose() {
-    setMenuOpen(false)
+  function handleSurpriseMe() {
+    if (people.length === 0) return
+    const person = people[Math.floor(Math.random() * people.length)]
+    router.push(`/people/${person.id}`)
   }
 
   return (
     <>
-      {/* Black bar — fades in on scroll, expands to full screen when menu opens */}
+      {/* Black bar — always visible, expands to full screen on mobile menu open */}
       <div
         style={{
           position: 'fixed',
@@ -58,8 +51,7 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           height: menuOpen ? '100vh' : `${NAV_HEIGHT}px`,
           backgroundColor: '#0A0A0A',
           zIndex: 58,
-          opacity: scrolled || menuOpen ? 1 : 0,
-          transition: 'height 0.35s ease, opacity 0.4s ease',
+          transition: 'height 0.35s ease',
         }}
       />
 
@@ -78,16 +70,8 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           pointerEvents: 'none',
         }}
       >
-        {/* Logo lockup */}
-        <Link
-          href="/"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            pointerEvents: 'auto',
-            textDecoration: 'none',
-          }}
-        >
+        {/* Logo */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', pointerEvents: 'auto', textDecoration: 'none' }}>
           <Image
             src="/assets/brandmark.svg"
             alt="The Wrong List"
@@ -99,23 +83,21 @@ export default function NavBar({ showLogoImmediately, people }: NavBarProps) {
           />
         </Link>
 
-        {/* Centered HOME link — shown on all non-home pages */}
+        {/* Centered HOME link — non-home pages only */}
         {showLogoImmediately && (
-          <div
-            style={{
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              pointerEvents: 'auto',
-            }}
-          >
-            <Link href="/" className="nav-home-link">
-              HOME
-            </Link>
+          <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', pointerEvents: 'auto' }}>
+            <Link href="/" className="nav-home-link">HOME</Link>
           </div>
         )}
 
-        {/* Hamburger — always interactive, spaced from right edge */}
+        {/* Desktop inline nav links (hidden on mobile) */}
+        <nav className="nav-desktop-links" style={{ pointerEvents: 'auto' }}>
+          <Link href="/about" className="nav-inline-link">What is this?</Link>
+          <Link href="/curator" className="nav-inline-link">Who made this</Link>
+          <button onClick={handleSurpriseMe} className="nav-inline-btn">surprise me →</button>
+        </nav>
+
+        {/* Hamburger — mobile only */}
         <div className="nav-hamburger-wrapper" style={{ pointerEvents: 'auto' }}>
           <HamburgerButton isOpen={menuOpen} onClick={handleMenuToggle} />
         </div>

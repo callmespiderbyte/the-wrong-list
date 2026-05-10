@@ -209,6 +209,17 @@ body {
   gap: 4px;
 }
 
+/* ── Kit badge grid ─────────────────────────────── */
+.kit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .kit-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Cards responsive ────────────────────────────── */
 @media (max-width: 900px) {
   .cards-grid {

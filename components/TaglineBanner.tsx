@@ -10,18 +10,31 @@ export default function TaglineBanner({ quotes }: { quotes: string[] }) {
   const [opacity, setOpacity] = useState(1)
 
   useEffect(() => {
-    const hold = setTimeout(() => {
-      // Fade out
-      setOpacity(0)
-      const swap = setTimeout(() => {
-        // Swap text while invisible, then fade in
-        setIndex(i => (i + 1) % quotes.length)
-        setOpacity(1)
-      }, FADE_MS)
-      return () => clearTimeout(swap)
-    }, HOLD_MS)
-    return () => clearTimeout(hold)
-  }, [index, quotes.length])
+    let cancelled = false
+
+    function cycle() {
+      setTimeout(() => {
+        if (cancelled) return
+        setOpacity(0)
+        setTimeout(() => {
+          if (cancelled) return
+          // Swap text while invisible, then wait a frame before fading in
+          // so the browser paints the new text at opacity-0 before transitioning
+          setIndex(i => (i + 1) % quotes.length)
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              if (cancelled) return
+              setOpacity(1)
+              cycle()
+            })
+          })
+        }, FADE_MS + 80)
+      }, HOLD_MS)
+    }
+
+    cycle()
+    return () => { cancelled = true }
+  }, [quotes.length])
 
   return (
     <div

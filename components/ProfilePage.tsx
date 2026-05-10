@@ -101,7 +101,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
 
           {/* ── photo ── */}
           <div className="pf-photo">
-            <PolaroidPhoto src={person.photo} alt={person.name} />
+            <PolaroidPhoto src={person.photo} alt={`${person.name} — ${person.tagline}`} />
           </div>
 
           {/* ── bottom: bio + quote ── */}

@@ -127,7 +127,7 @@ export default function ProfileRow({ person, index }: ProfileRowProps) {
         >
           <Image
             src={person.photo}
-            alt={person.name}
+            alt={`${person.name} — ${person.tagline}`}
             fill
             sizes="260px"
             style={{ objectFit: 'cover' }}

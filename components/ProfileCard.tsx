@@ -97,7 +97,7 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
         <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1' }}>
           <Image
             src={person.photo}
-            alt={person.name}
+            alt={`${person.name} — ${person.tagline}`}
             fill
             sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw"
             style={{ objectFit: 'cover', objectPosition: 'top center' }}

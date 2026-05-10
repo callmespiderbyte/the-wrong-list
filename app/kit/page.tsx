@@ -47,7 +47,7 @@ export default function KitPage() {
         position: 'relative',
         zIndex: 1,
       }}>
-        <div style={{ maxWidth: '900px', width: '100%' }}>
+        <div style={{ maxWidth: '900px', width: '100%', margin: '0 auto' }}>
 
           {/* Header */}
           <p style={{

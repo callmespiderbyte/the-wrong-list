@@ -187,6 +187,19 @@
     "backgroundColor": "teal"
   },
   {
+    "id": "careshia-esperanza",
+    "name": "Careshia Esperanza",
+    "tagline": "Abstract Monster Creating Artist and Illustrator",
+    "quote": "\"You're too scattered to stick to something and make it a success.\"",
+    "tags": ["email", "hire & collabs", "advice & mentoring"],
+    "bio": "Careshia Esperanza is a Cape Town-based artist whose work moves between bold figuration, feminine form, and a line quality that feels simultaneously wild and completely in control. She studied Graphic Design and spent years working as a commercial illustrator, doing brand work for clients like AngloAmerican and Roche before making the deliberate shift to full-time fine artist. It's a transition that shows in the work: there's a fluency in how she handles scale, composition, and visual impact that most painters have to spend years chasing.\n\nThat fluency has translated into exhibitions at Mullers Gallery in Cape Town, where she held a solo show, and at Tintswalo, as well as representation through AITY Gallery, which shows contemporary fine art out of Franschhoek and the Old Biscuit Mill. Her work is also available internationally through Saatchi Art. Beyond the gallery circuit, she has taken on large-scale mural commissions, including a nine-piece interior installation for Nine Lives SA, and founded Snag Gallery, a Cape Town-based platform built on the premise that art should be accessible without the usual gatekeeping.\n\nThe range is real and it is deliberate. Esperanza is an artist who builds ecosystems around her practice, not just a body of work.",
+    "email": "careshia@cray-ative.com",
+    "instagram": "https://instagram.com/careshia_esperanza_",
+    "snagGallery": "https://snaggallery.com/collections/careshia-esperanza",
+    "photo": "/photos/Careshia.png",
+    "backgroundColor": "indigo"
+  },
+  {
     "id": "zandile-darko",
     "name": "Zandile Darko",
     "tagline": "Theatre Maker and Director of All Kinds of Creative Processes",

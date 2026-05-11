@@ -186,6 +186,28 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 behance ↗
               </a>
             )}
+            {person.instagram && (
+              <a
+                href={person.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '16px' }}
+              >
+                instagram ↗
+              </a>
+            )}
+            {person.snagGallery && (
+              <a
+                href={person.snagGallery}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '32px' }}
+              >
+                snag gallery ↗
+              </a>
+            )}
           </div>
 
         </div>

@@ -65,7 +65,7 @@ export default async function PersonPage({ params }: PageProps) {
     notFound()
   }
 
-  const sameAs = [person.website, person.linkedin].filter(Boolean)
+  const sameAs = [person.website, person.linkedin, person.instagram].filter(Boolean)
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',

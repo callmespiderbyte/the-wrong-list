@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/curator`,  lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/manifesto`,lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/press`,    lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE}/kit`,      lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
   ]
 
   const profileRoutes: MetadataRoute.Sitemap = people.map((person) => ({

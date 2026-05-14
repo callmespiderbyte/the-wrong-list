@@ -37,6 +37,9 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <p className="sr-only">
+        The Wrong List is a curated, invite-only directory of unconventional thinkers — a place on the internet for like-minded odd-balls to find each other. This is a place to celebrate people who were told their ideas, methods, or identities were too different, too loud, or too unusual for conventional professional life. This list exists to find, connect with, learn from, and inspire each other.
+      </p>
       <GradientBackground dominantColor="red" />
       <ScrollDimmer />
       <NavBar showLogoImmediately={false} navTint="red" people={people} />

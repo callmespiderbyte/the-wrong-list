@@ -25,15 +25,18 @@ const vanillaCreamOx = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://thewronglist.com'),
-  title: 'The Wrong List — A directory of unconventional professionals',
-  description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+  title: {
+    default: 'The Wrong List',
+    template: '%s | The Wrong List',
+  },
+  description: 'A curated, invite-only directory of unconventional thinkers who have been labelled "too different" in their professional lives.',
   openGraph: {
-    title: 'The Wrong List',
-    description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
-    url: 'https://thewronglist.com',
-    siteName: 'The Wrong List',
-    images: [{ url: '/assets/og-image.png', width: 1201, height: 631 }],
     type: 'website',
+    siteName: 'The Wrong List',
+    title: 'The Wrong List',
+    description: 'A curated directory of unconventional thinkers.',
+    url: 'https://thewronglist.com',
+    images: [{ url: '/assets/og-image.png', width: 1201, height: 631 }],
   },
   icons: {
     icon: '/favicon.png',
@@ -43,11 +46,34 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'The Wrong List',
-    description: 'A hand-curated directory of unconventional professionals who were told they were too much, too different, or too hard to place.',
+    description: 'A curated directory of unconventional thinkers.',
     images: ['/assets/og-image.png'],
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
-    canonical: '/',
+    canonical: 'https://thewronglist.com',
+  },
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'The Wrong List',
+  url: 'https://thewronglist.com',
+  description: 'A curated, invite-only directory of unconventional thinkers who have been labelled too different in their professional lives.',
+  creator: {
+    '@type': 'Person',
+    name: 'Jomiro Eming',
+    jobTitle: 'Freelance Graphic Designer and Creative Strategist',
+    url: 'https://thewronglist.com/curator',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Hamburg',
+      addressCountry: 'DE',
+    },
   },
 }
 
@@ -59,6 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${healTheWeb.variable} ${robotoMono.variable} ${vanillaCreamOx.variable}`} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         {/* Grain SVG filter — injected once, referenced globally */}
         <svg
           aria-hidden="true"

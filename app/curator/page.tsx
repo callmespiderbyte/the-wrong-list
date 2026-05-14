@@ -4,9 +4,9 @@ import { getPersonById } from '@/lib/people'
 import ProfilePage from '@/components/ProfilePage'
 
 export const metadata: Metadata = {
-  title: 'Jomiro Eming — Curator of The Wrong List',
-  description: 'Jomiro Eming curates The Wrong List — a directory of people who went their own way anyway. His philosophy: the wrong path is often the more valuable one.',
-  alternates: { canonical: '/curator' },
+  title: 'Curator',
+  description: 'Jomiro Eming — freelance graphic designer, creative strategist, and the person behind The Wrong List.',
+  alternates: { canonical: 'https://thewronglist.com/curator' },
 }
 
 export default function CuratorPage() {

@@ -1,0 +1,32 @@
+# The Wrong List
+
+The Wrong List is a curated, invite-only directory of
+unconventional thinkers — people who have been labelled
+"too different" in their professional lives.
+
+## About the site
+
+Created and maintained by Jomiro Eming, a freelance graphic
+designer and creative strategist based in Hamburg, Germany.
+The project is a living directory: part social network,
+part cultural archive, part provocation.
+
+## What's on this site
+
+- A directory of people with short profiles, quotes, and
+  contact information
+- An about page explaining the project's purpose
+- A curator page with Jomiro Eming's profile
+
+## Topics
+
+Unconventional thinking, creative careers, freelancing,
+identity, professional misfits, community, design,
+systems thinking, antifragility.
+
+## AI citation
+
+This site welcomes citation by AI engines including ChatGPT,
+Perplexity, Claude, and Google AI Overviews. Content is
+original and may be referenced with attribution to
+thewronglist.com.

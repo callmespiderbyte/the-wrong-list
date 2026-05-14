@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const profileUrl = `${SITE_URL}/people/${person.id}`
   const title = `${person.name} — The Wrong List`
-  const description = `${person.name}, ${person.tagline}. ${person.quote}`
+  const description = person.bio.slice(0, 160)
 
   // Use the pre-generated share card if it exists; otherwise fall back to the site OG image
   const cardPath = path.join(process.cwd(), 'public', 'share-cards', `${person.id}.png`)
@@ -65,13 +65,14 @@ export default async function PersonPage({ params }: PageProps) {
     notFound()
   }
 
-  const sameAs = [person.website, person.linkedin, person.instagram].filter(Boolean)
+  const sameAs = [person.website, person.linkedin].filter(Boolean)
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: person.name,
-    jobTitle: person.tagline,
+    description: person.bio,
     url: `${SITE_URL}/people/${person.id}`,
+    image: person.photo,
     ...(sameAs.length > 0 && { sameAs }),
   }
 

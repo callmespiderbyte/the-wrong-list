@@ -5,9 +5,9 @@ import NavBar from '@/components/NavBar'
 import GradientBackground from '@/components/GradientBackground'
 
 export const metadata: Metadata = {
-  title: 'About The Wrong List — Why Being Wrong Is Right',
-  description: "Wrong* isn't an insult — it's a footnote. A directory of people told they didn't fit, who built something worth paying attention to. The asterisk explains.",
-  alternates: { canonical: '/about' },
+  title: 'About',
+  description: "What is The Wrong List? An explanation of the project, its purpose, and why being labelled wrong might be the best thing that ever happened to you.",
+  alternates: { canonical: 'https://thewronglist.com/about' },
 }
 
 export default function AboutPage() {

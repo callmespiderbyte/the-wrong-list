@@ -2,10 +2,10 @@
 module.exports = {
   siteUrl: 'https://thewronglist.com',
   generateRobotsTxt: true,
-  exclude: ['/share/*', '/api/*'],
+  exclude: ['/api/*'],
   robotsTxtOptions: {
     policies: [
-      { userAgent: '*', allow: '/', disallow: ['/share/'] },
+      { userAgent: '*', allow: '/' },
     ],
     additionalSitemaps: ['https://thewronglist.com/sitemap.xml'],
   },

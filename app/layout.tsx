@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
+import Script from 'next/script'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
 import ProductHuntPopup from '@/components/ProductHuntPopup'
@@ -106,6 +107,45 @@ export default function RootLayout({
             </filter>
           </defs>
         </svg>
+        {/* Consent Mode v2 default — all denied until user accepts */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+          });
+        `}} />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J9JRLPD0ZN"
+          strategy="afterInteractive"
+        />
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-J9JRLPD0ZN');
+        `}} />
+        {/* Upgrade consent immediately for returning visitors who already accepted */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          (function() {
+            function getCookie(name) {
+              var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+              return match ? match[2] : null;
+            }
+            if (getCookie('twl_cookie_consent') === 'accepted') {
+              gtag('consent', 'update', {
+                'analytics_storage': 'granted',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied'
+              });
+            }
+          })();
+        `}} />
         <Analytics />
         <PageTransition />
         {children}

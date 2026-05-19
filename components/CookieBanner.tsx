@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { getConsent, setConsent } from '@/lib/consent'
-import { loadGA } from '@/components/Analytics'
 import { PRIVACY_OPEN_EVENT } from '@/components/PrivacyModal'
 
 function CookieIcon() {
@@ -32,7 +31,15 @@ export default function CookieBanner() {
 
   function handleAccept() {
     setConsent('accepted')
-    loadGA()
+    const w = window as unknown as Record<string, unknown>
+    if (typeof w.gtag === 'function') {
+      ;(w.gtag as (...args: unknown[]) => void)('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      })
+    }
     setVisible(false)
   }
 

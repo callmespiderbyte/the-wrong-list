@@ -8,6 +8,7 @@ import ProductHuntPopup from '@/components/ProductHuntPopup'
 import Analytics from '@/components/Analytics'
 import CookieBanner from '@/components/CookieBanner'
 import PrivacyModal from '@/components/PrivacyModal'
+import ImpressumModal from '@/components/ImpressumModal'
 
 const healTheWeb = localFont({
   src: '../public/fonts/HealTheWebA-Regular.otf',
@@ -153,6 +154,7 @@ export default function RootLayout({
         <ProductHuntPopup />
         <CookieBanner />
         <PrivacyModal />
+        <ImpressumModal />
       </body>
     </html>
   )

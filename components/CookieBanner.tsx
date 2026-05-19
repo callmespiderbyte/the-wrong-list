@@ -89,6 +89,7 @@ export default function CookieBanner() {
           display: flex;
           gap: 10px;
           margin-bottom: 14px;
+          justify-content: center;
         }
         .cookie-btn {
           background: none;
@@ -121,7 +122,7 @@ export default function CookieBanner() {
           cursor: pointer;
           padding: 0;
           transition: color 0.15s ease;
-          align-self: flex-start;
+          align-self: center;
         }
         .cookie-privacy-link:hover {
           color: rgba(255,255,255,0.75);

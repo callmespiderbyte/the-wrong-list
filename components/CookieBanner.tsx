@@ -5,6 +5,24 @@ import { getConsent, setConsent } from '@/lib/consent'
 import { loadGA } from '@/components/Analytics'
 import { PRIVACY_OPEN_EVENT } from '@/components/PrivacyModal'
 
+function CookieIcon() {
+  return (
+    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+      {/* cookie body */}
+      <circle cx="22" cy="22" r="19" fill="rgba(255,255,255,0.06)" stroke="white" strokeWidth="1.5" />
+      {/* chips */}
+      <ellipse cx="15" cy="15" rx="3" ry="2.2" fill="white" opacity="0.75" transform="rotate(-20 15 15)" />
+      <ellipse cx="28" cy="13" rx="2.4" ry="1.8" fill="white" opacity="0.75" transform="rotate(15 28 13)" />
+      <ellipse cx="13" cy="27" rx="2.2" ry="2.8" fill="white" opacity="0.75" transform="rotate(-10 13 27)" />
+      <ellipse cx="28" cy="28" rx="3" ry="2" fill="white" opacity="0.75" transform="rotate(25 28 28)" />
+      <ellipse cx="22" cy="21" rx="2" ry="1.5" fill="white" opacity="0.75" transform="rotate(-5 22 21)" />
+      <ellipse cx="20" cy="31" rx="1.8" ry="1.4" fill="white" opacity="0.75" transform="rotate(10 20 31)" />
+      {/* subtle crack */}
+      <path d="M25 10 Q27 14 25 17" stroke="white" strokeWidth="0.7" strokeLinecap="round" opacity="0.25" />
+    </svg>
+  )
+}
+
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false)
 
@@ -41,45 +59,31 @@ export default function CookieBanner() {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: 24px;
         }
-        .cookie-shape {
-          position: relative;
-          width: 320px;
-          height: 320px;
-          border-radius: 50%;
+        .cookie-box {
           background: #000;
           border: 1px solid rgba(255,255,255,0.85);
+          width: 100%;
+          max-width: 360px;
+          padding: 28px 28px 24px;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 52px 44px;
-          text-align: center;
           gap: 0;
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.08), inset 0 0 60px rgba(255,255,255,0.03);
         }
-        /* decorative chip dots */
-        .cookie-shape::before,
-        .cookie-shape::after {
-          content: '';
-          position: absolute;
-          border-radius: 50%;
-          background: rgba(255,255,255,0.12);
-        }
-        .cookie-shape::before {
-          width: 8px; height: 8px;
-          top: 72px; left: 88px;
-        }
-        .cookie-shape::after {
-          width: 6px; height: 6px;
-          bottom: 80px; right: 82px;
+        .cookie-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          margin-bottom: 16px;
         }
         .cookie-text {
           font-family: var(--font-mono);
           font-size: 0.68rem;
           line-height: 1.65;
           color: rgba(255,255,255,0.8);
-          margin-bottom: 20px;
+          flex: 1;
+          padding-top: 2px;
         }
         .cookie-buttons {
           display: flex;
@@ -94,7 +98,7 @@ export default function CookieBanner() {
           font-size: 0.65rem;
           letter-spacing: 0.08em;
           text-transform: lowercase;
-          padding: 7px 16px;
+          padding: 7px 20px;
           cursor: pointer;
           transition: background-color 0.15s ease, border-color 0.15s ease;
           border-radius: 0;
@@ -117,23 +121,20 @@ export default function CookieBanner() {
           cursor: pointer;
           padding: 0;
           transition: color 0.15s ease;
+          align-self: flex-start;
         }
         .cookie-privacy-link:hover {
           color: rgba(255,255,255,0.75);
         }
-        @media (max-width: 380px) {
-          .cookie-shape {
-            width: 290px;
-            height: 290px;
-            padding: 48px 36px;
-          }
-        }
       `}</style>
       <div className="cookie-overlay" role="dialog" aria-modal="true" aria-label="Cookie consent">
-        <div className="cookie-shape">
-          <p className="cookie-text">
-            This site uses minimal analytics to understand how people find it. No ads, no tracking sold to third parties.
-          </p>
+        <div className="cookie-box">
+          <div className="cookie-header">
+            <CookieIcon />
+            <p className="cookie-text">
+              This site uses minimal analytics to understand how people find it. No ads, no tracking sold to third parties.
+            </p>
+          </div>
           <div className="cookie-buttons">
             <button className="cookie-btn cookie-btn-accept" onClick={handleAccept}>Accept</button>
             <button className="cookie-btn" onClick={handleDecline}>Decline</button>

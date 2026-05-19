@@ -1,6 +1,20 @@
+'use client'
+
 import Link from 'next/link'
+import { clearConsent } from '@/lib/consent'
+import { PRIVACY_OPEN_EVENT } from '@/components/PrivacyModal'
 
 export default function Footer() {
+  function handlePrivacy(e: React.MouseEvent) {
+    e.preventDefault()
+    window.dispatchEvent(new CustomEvent(PRIVACY_OPEN_EVENT))
+  }
+
+  function handleManageCookies(e: React.MouseEvent) {
+    e.preventDefault()
+    clearConsent()
+    window.location.reload()
+  }
   return (
     <>
       <style>{`
@@ -59,6 +73,12 @@ export default function Footer() {
           <a href="mailto:design@jomiro.de?subject=The%20Wrong*%20List%3A%20Contact%20request" className="footer-link">
             Contact
           </a>
+          <button onClick={handlePrivacy} className="footer-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-heal)', fontSize: '12px', letterSpacing: '0.01em', padding: 0 }}>
+            Privacy Policy
+          </button>
+          <button onClick={handleManageCookies} className="footer-link" style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-heal)', fontSize: '12px', letterSpacing: '0.01em', padding: 0 }}>
+            Manage cookies
+          </button>
         </div>
       </footer>
     </>

@@ -4,6 +4,9 @@ import './globals.css'
 import PageTransition from '@/components/PageTransition'
 import Footer from '@/components/Footer'
 import ProductHuntPopup from '@/components/ProductHuntPopup'
+import Analytics from '@/components/Analytics'
+import CookieBanner from '@/components/CookieBanner'
+import PrivacyModal from '@/components/PrivacyModal'
 
 const healTheWeb = localFont({
   src: '../public/fonts/HealTheWebA-Regular.otf',
@@ -103,10 +106,13 @@ export default function RootLayout({
             </filter>
           </defs>
         </svg>
+        <Analytics />
         <PageTransition />
         {children}
         <Footer />
         <ProductHuntPopup />
+        <CookieBanner />
+        <PrivacyModal />
       </body>
     </html>
   )

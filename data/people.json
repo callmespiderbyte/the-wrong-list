@@ -199,5 +199,43 @@
     "email": "info@zandiledarko.com",
     "photo": "/photos/Zandile.jpg",
     "backgroundColor": "teal"
+  },
+  {
+    "id": "gabi-immelman",
+    "name": "Gabi Immelman",
+    "tagline": "Founder and CEO",
+    "quote": "\"You're too enthusiastic\"",
+    "tags": ["linkedin", "speaking gigs", "virtual coffee chat"],
+    "bio": "Gabi is a mom building Mindjoy, and a member of the Young Mandela 2025 cohort. She's consumed by figuring out how to engineer the art of teaching, so that the systems we build produce resilient, creative, curious, and motivated learners — and so that all young people have access to opportunity regardless of where they were born.\n\nShe's deeply curious about how we construct stories about ourselves in an ever-changing tech world. Our education, formal or informal, shapes how we build those stories. The tools we can wield — pen, paintbrush, calculator, computer, code, and AI — shape our ability to participate in economies where humanity flourishes.",
+    "linkedin": "https://www.linkedin.com/in/gabi-immelman",
+    "photo": "/photos/Gabi.png",
+    "backgroundColor": "indigo"
+  },
+  {
+    "id": "cora-veltman",
+    "name": "Cora Veltman",
+    "tagline": "Art Director / Sports Photographer / Designer",
+    "quote": "\"You're not smart enough to be an engineer, not brave enough to be a race-car driver.\"",
+    "tags": ["email & linkedin", "hire & collabs", "virtual coffee chat"],
+    "bio": "Howdy — this is Cora. She's an Art Director and Designer with a sports background who tells stories and develops brand voices, drawing on pop culture, pop art, and overall anarchy for her advertising ideas.\n\nShe's chronically online and a self-described Swiss-army creative: ten years as a professional sports photographer, eight years as a graphic designer and brand manager, and six years as a social media community manager and content creator. She's lived professional lives in freelance, agency, in-house, production company, and events work, and that range has made her a strange kind of creative. She also knows quite a lot about motorsports — but that's its own story.\n\nShe's a productive thinker for sports, entertainment, and consumer goods: pitching campaigns, building content plans, and designing projects large and small across multiple industries and for global brands. She's hired and managed teams of freelancers and knows her way around a photo and video shoot. Live TV taught her to stay on her toes, entertainment made her a self-starter, and sports trained her to juggle multiple projects and prioritize well.\n\nHer client list includes NBC Properties, Visa, Jose Cuervo, JBL, Capella University, Wells Fargo, McDonald's, Busch Light, Eli Lilly, Indianapolis Motor Speedway, IndyCar, Butterball Turkey, Chevrolet, and Honda. Her skills span branding, multi-platform content development, design thinking, concept visualization, presentations, cross-functional collaboration, social media content creation and strategy, the Adobe Suite, direct photo and video shoots, and AI.",
+    "website": "https://www.coraveltman.com/",
+    "linkedin": "https://www.linkedin.com/in/hirecoraveltman/",
+    "email": "cmveltman062@gmail.com",
+    "photo": "/photos/Cora.jpg",
+    "backgroundColor": "dark-blue"
+  },
+  {
+    "id": "nathan-nadler-nir",
+    "name": "Nathan Nadler-Nir",
+    "tagline": "Designer & Creative Dramaturge",
+    "quote": "\"You're too idealistic.\"",
+    "tags": ["email & linkedin", "hire & collabs", "speaking gigs"],
+    "bio": "Nathan Nadler-Nir is a Cape Town-based designer, filmmaker, and creative technologist specializing in user-centric digital experiences, narrative-driven media, and complex productivity systems. With a background as Head of Creative at Dado and Creative Director at Momint, he has a strong footprint in the South African tech startup ecosystem and now dreams of building the worker-owned creative studio, Bedroom.digital. His work spans video production, UX/UI, 3D modeling, and web design, operating as an international freelancer and founder focused on building bold visual ecosystems.\n\nHe may be the last living techno-optimistic socialist. Aluta continua.",
+    "website": "https://nathannn.com",
+    "linkedin": "https://www.linkedin.com/in/nathannadlernir/",
+    "email": "nathan.nadlernir@gmail.com",
+    "instagram": "https://instagram.com/nathannadlernir",
+    "photo": "/photos/Nathan.jpg",
+    "backgroundColor": "teal"
   }
 ]

@@ -237,5 +237,31 @@
     "instagram": "https://instagram.com/nathannadlernir",
     "photo": "/photos/Nathan.jpg",
     "backgroundColor": "teal"
+  },
+  {
+    "id": "kat-kibben",
+    "name": "Kat Kibben",
+    "tagline": "Recruiting Myth Buster",
+    "quote": "\"You're too opinionated.\"",
+    "tags": ["email & linkedin", "speaking gigs"],
+    "bio": "Kat is a writer, keynote speaker, and professional recruiting contrarian who has spent fifteen years challenging the way hiring has always been done by figuring out what actually works.\n\nThey run Three Ears Media (named after their dogs), where they teach recruiting teams to write job postings for people rather than about work, swapping the usual buzzwords for language a person might actually say out loud. Before that they were a CMO, technical copywriter, and managing editor at Monster, Care.com, and Randstad Worldwide, which bought them a front-row seat to every bad job post ever written.\n\nNow they speak on stages around the world and turn up as a recruiting expert in the New York Times, NPR, and Forbes, with a spot on LinkedIn's Top Voices list to go with it. They've written two books: This Was All An Accident, a set of letters about work, life, and a year spent in a van, and The Bounce Back Factor, on building resilience when everything shifts overnight. Both carry the same line they take everywhere: honesty beats polish, and most hiring advice stopped being true a decade ago.",
+    "email": "Katrina@ThreeEarsMedia.com",
+    "linkedin": "https://www.linkedin.com/in/katrinakibben",
+    "calendly": "https://calendly.com/katrina-kibben",
+    "photo": "/photos/Kat.jpg",
+    "backgroundColor": "light-blue"
+  },
+  {
+    "id": "ana-lucia-jardim",
+    "name": "Ana Lucia Jardim",
+    "tagline": "Change Artist",
+    "quote": "\"You ask too many questions. You need to control your facial expressions.\"",
+    "tags": ["hire & collabs", "speaking gigs"],
+    "bio": "Ana Lucia teaches leaders how to make change feel like a dance instead of a drag. She does that through her keynote Dancing Through Change, where she performs live on stage with flamenco musicians and reveals the secrets to leading transformation with joy and ease, alongside stories of applying those successfully in her 20 year corporate career. She also teaches workshops on somatic intelligence for leaders who are tired of the same old leadership concepts and want a fresh, more immediate approach to transform the way they lead and live.\n\nAfter 20 years in the corporate world, she realised that one of the biggest obstacles to real organisational change is that there is no joy. Management pushes, plans and controls, thinking this way they'll get the change they want. But it's impossible to manage change, because change is a living process. Just like a live flamenco performance, where there are no rehearsals, leadership is distributed, and we sense and respond in real time. Oh, and very important: perfect dancers leave everyone cold. It's the ugly dancers, passionate, spontaneous, imperfect, that transform the audience forever.\n\nIt's time we ditch the tyranny of hypermasculine management and embrace the artist that lives inside every leader.",
+    "website": "https://analuciajardim.com",
+    "linkedin": "https://www.linkedin.com/in/analuciajardim",
+    "substack": "https://analuciajardim.substack.com",
+    "photo": "/photos/AnaLucia.jpg",
+    "backgroundColor": "teal"
   }
 ]

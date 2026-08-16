@@ -208,6 +208,28 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 snag gallery ↗
               </a>
             )}
+            {person.calendly && (
+              <a
+                href={person.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '8px' }}
+              >
+                book a call ↗
+              </a>
+            )}
+            {person.substack && (
+              <a
+                href={person.substack}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '24px' }}
+              >
+                substack ↗
+              </a>
+            )}
           </div>
 
         </div>

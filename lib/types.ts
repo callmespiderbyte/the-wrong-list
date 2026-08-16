@@ -14,5 +14,6 @@ export interface Person {
   calendly?: string
   substack?: string
   photo: string
+  photoPosition?: string
   backgroundColor: 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue' | 'purple'
 }

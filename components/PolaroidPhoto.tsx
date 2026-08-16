@@ -6,9 +6,10 @@ import { useRef } from 'react'
 interface PolaroidPhotoProps {
   src: string
   alt: string
+  objectPosition?: string
 }
 
-export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
+export default function PolaroidPhoto({ src, alt, objectPosition = 'center' }: PolaroidPhotoProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
 
   function handleMouseMove(e: React.MouseEvent) {
@@ -42,6 +43,7 @@ export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
         style={{
           display: 'block',
           objectFit: 'cover',
+          objectPosition,
           width: '100%',
           height: 'auto',
           aspectRatio: '1/1',

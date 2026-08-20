@@ -264,5 +264,17 @@
     "substack": "https://analuciajardim.substack.com",
     "photo": "/photos/AnaLucia.jpg",
     "backgroundColor": "teal"
+  },
+  {
+    "id": "benny-ou",
+    "name": "Benny Ou",
+    "tagline": "Human-API",
+    "quote": "\"You need to focus on one thing.\"",
+    "tags": ["advice & mentoring", "email & linkedin", "virtual coffee chat"],
+    "bio": "Benny works at the intersection of people, technology, and impact, which is a tidy way of saying he has never managed to do just one thing.\n\nHis career reads like a refusal to pick a lane: software developer, lead developer, agile coach, talent manager, talent acquisition manager, developer relations manager. Somewhere along the way he stopped treating those as separate jobs and started treating them as one, acting as the translation layer between engineers, the people who hire them, and the humans on the receiving end of whatever gets built.\n\nHe co-organises Cape Town's Tech Leadership meetup, a community of more than 4,400 members built on the idea that leadership is a skill you learn rather than something you inherit by being the most senior person in the room. He credits it with much of his own growth as a leader, which is the kind of thing people say without meaning it, and in his case seems to be true. If you want to talk technology and leadership, or just say hello, he actually means the invitation.",
+    "email": "bennyou.cpt@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/benny-ou",
+    "photo": "/photos/Benny.jpg",
+    "backgroundColor": "indigo"
   }
 ]

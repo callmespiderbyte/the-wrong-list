@@ -812,3 +812,17 @@ body {
   }
   .hero-whatisthis-btn:hover { transform: rotate(-4deg) scale(1.04); }
 }
+
+/* ── About page "Who made this?" callout ─────────────────────────── */
+.about-whomadethis-btn {
+  margin-top: 32px;
+}
+
+@media (min-width: 769px) {
+  .about-whomadethis-btn {
+    position: absolute;
+    top: 60px;
+    left: calc(100% + 40px);
+    margin-top: 0;
+  }
+}

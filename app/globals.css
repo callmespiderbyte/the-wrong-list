@@ -803,8 +803,6 @@ body {
 
 .hero-whatisthis-btn:hover { transform: rotate(-2deg) scale(1.04); }
 
-.hero-whatisthis-arrow { display: block; }
-
 @media (min-width: 769px) {
   .hero-whatisthis-btn {
     position: absolute;
@@ -813,8 +811,4 @@ body {
     transform: rotate(-4deg);
   }
   .hero-whatisthis-btn:hover { transform: rotate(-4deg) scale(1.04); }
-}
-
-@media (max-width: 768px) {
-  .hero-whatisthis-arrow { display: none; }
 }

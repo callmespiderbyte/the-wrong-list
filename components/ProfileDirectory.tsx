@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Person } from '@/lib/types'
 import ProfileCard from '@/components/ProfileCard'
@@ -18,9 +18,13 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export default function ProfileDirectory({ people }: { people: Person[] }) {
-  const [order, setOrder] = useState<Person[]>(() => shuffle(people))
+  const [order, setOrder] = useState<Person[]>(people)
   const [sortMode, setSortMode] = useState<SortMode>(null)
   const [activeTags, setActiveTags] = useState<string[]>([])
+
+  useEffect(() => {
+    setOrder(shuffle(people))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const allTags = useMemo(() => {
     const s = new Set<string>()

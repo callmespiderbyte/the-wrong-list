@@ -79,20 +79,8 @@ export default function HomePage() {
         />
         <span className="sr-only">Wrong by most standards, right by the ones that matter.</span>
 
-        {/* Floating "What is this?" callout with hand-drawn arrow pointing at the wordmark */}
+        {/* Floating "What is this?" callout */}
         <Link href="/about" className="hero-whatisthis-btn">&ldquo;What is this?&rdquo;</Link>
-        <svg
-          className="hero-whatisthis-arrow"
-          width="90"
-          height="60"
-          viewBox="0 0 90 60"
-          fill="none"
-          style={{ position: 'absolute', top: '32%', left: 'calc(50% + 130px)', pointerEvents: 'none' }}
-          aria-hidden="true"
-        >
-          <path d="M82 46 C 66 42, 62 24, 44 18 C 30 13, 20 16, 8 10" stroke="#F2EDE4" strokeWidth="2" strokeLinecap="round" fill="none" />
-          <path d="M20 4 L 8 10 L 14 22" stroke="#F2EDE4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        </svg>
 
         {/* Scroll-down arrow button */}
         <ScrollDownArrow />

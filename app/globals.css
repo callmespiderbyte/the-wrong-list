@@ -891,3 +891,45 @@ body {
     margin-top: 0;
   }
 }
+
+/* ── Nomination form ─────────────────────────── */
+.nominate-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(242, 237, 228, 0.65);
+}
+
+.nominate-optional {
+  text-transform: none;
+  letter-spacing: 0;
+  color: rgba(242, 237, 228, 0.4);
+}
+
+.nominate-input {
+  background: transparent;
+  border: 1px solid rgba(242, 237, 228, 0.5);
+  border-radius: 0;
+  color: #F2EDE4;
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: border-color 0.15s ease;
+}
+
+.nominate-input:focus {
+  outline: none;
+  border-color: rgba(242, 237, 228, 0.9);
+}
+
+.nominate-textarea {
+  resize: vertical;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}

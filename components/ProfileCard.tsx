@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Person } from '@/lib/types'
+import { isNewProfile } from '@/lib/people'
 import ShareMenu from './ShareMenu'
 
 const SCRAMBLE_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -107,6 +108,9 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
             sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw"
             style={{ objectFit: 'cover', objectPosition: 'top center' }}
           />
+          {isNewProfile(person) && (
+            <span className="new-badge new-badge-sticker">new</span>
+          )}
         </div>
       </div>
 

@@ -2,7 +2,7 @@ import { Person } from '@/lib/types'
 import GradientBackground from './GradientBackground'
 import NavBar from './NavBar'
 import PolaroidPhoto from './PolaroidPhoto'
-import { getPeople } from '@/lib/people'
+import { getPeople, isNewProfile } from '@/lib/people'
 
 interface ProfilePageProps {
   person: Person
@@ -105,6 +105,7 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
               src={person.photo}
               alt={`${person.name} — ${person.tagline}`}
               objectPosition={person.photoPosition}
+              badge={isNewProfile(person) ? <span className="new-badge new-badge-sticker">new</span> : undefined}
             />
           </div>
 

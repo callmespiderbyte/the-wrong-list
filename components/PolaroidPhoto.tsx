@@ -7,9 +7,10 @@ interface PolaroidPhotoProps {
   src: string
   alt: string
   objectPosition?: string
+  badge?: React.ReactNode
 }
 
-export default function PolaroidPhoto({ src, alt, objectPosition = 'center' }: PolaroidPhotoProps) {
+export default function PolaroidPhoto({ src, alt, objectPosition = 'center', badge }: PolaroidPhotoProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
 
   function handleMouseMove(e: React.MouseEvent) {
@@ -32,8 +33,9 @@ export default function PolaroidPhoto({ src, alt, objectPosition = 'center' }: P
       ref={wrapRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ transition: 'transform 0.2s ease', transformStyle: 'preserve-3d', willChange: 'transform' }}
+      style={{ position: 'relative', transition: 'transform 0.2s ease', transformStyle: 'preserve-3d', willChange: 'transform' }}
     >
+      {badge}
       <Image
         src={src}
         alt={alt}

@@ -420,6 +420,30 @@ body {
   transform: translateX(8px);
 }
 
+/* "New" badge — cohort just added, styled like a stuck-on sticker */
+.new-badge {
+  background: #F2EDE4;
+  color: #0A0A0A;
+  padding: 5px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  border-radius: 0;
+  display: inline-block;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0px 0px #0A0A0A;
+}
+
+.new-badge-sticker {
+  position: absolute;
+  top: -12px;
+  left: -14px;
+  transform: rotate(-10deg);
+  z-index: 3;
+}
+
 /* Menu overlay nav links */
 .menu-nav-link {
   background: none;

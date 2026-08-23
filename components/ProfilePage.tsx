@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Person } from '@/lib/types'
 import GradientBackground from './GradientBackground'
 import NavBar from './NavBar'
@@ -7,9 +8,11 @@ import { getPeople, isNewProfile } from '@/lib/people'
 interface ProfilePageProps {
   person: Person
   reversed?: boolean
+  prev?: Person | null
+  next?: Person | null
 }
 
-export default function ProfilePage({ person, reversed = false }: ProfilePageProps) {
+export default function ProfilePage({ person, reversed = false, prev, next }: ProfilePageProps) {
   const people = getPeople()
   const bioParagraphs = person.bio.split('\n\n')
 
@@ -238,6 +241,22 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
           </div>
 
         </div>
+
+        {/* ── prev/next navigation ── */}
+        {(prev || next) && (
+          <div className="pf-adjacent-nav">
+            {prev && (
+              <Link href={`/people/${prev.id}`} className="pf-adjacent-link">
+                ← {prev.name}
+              </Link>
+            )}
+            {next && (
+              <Link href={`/people/${next.id}`} className="pf-adjacent-link pf-adjacent-link-next">
+                {next.name} →
+              </Link>
+            )}
+          </div>
+        )}
       </main>
     </>
   )

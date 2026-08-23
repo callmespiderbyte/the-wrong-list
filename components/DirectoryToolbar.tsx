@@ -3,25 +3,30 @@
 import { useEffect, useRef, useState } from 'react'
 
 type SortMode = 'az' | 'za' | null
+type TagMode = 'and' | 'or'
 
 interface DirectoryToolbarProps {
   allTags: string[]
   activeTags: string[]
   sortMode: SortMode
+  tagMode: TagMode
   onRandomize: () => void
   onSortToggle: () => void
   onToggleTag: (tag: string) => void
   onClearTags: () => void
+  onTagModeChange: (mode: TagMode) => void
 }
 
 export default function DirectoryToolbar({
   allTags,
   activeTags,
   sortMode,
+  tagMode,
   onRandomize,
   onSortToggle,
   onToggleTag,
   onClearTags,
+  onTagModeChange,
 }: DirectoryToolbarProps) {
   const [filterOpen, setFilterOpen] = useState(false)
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -94,6 +99,20 @@ export default function DirectoryToolbar({
 
         {filterOpen && (
           <div className="dir-filter-panel">
+            <div className="dir-filter-mode-row">
+              <button
+                className={`dir-filter-chip${tagMode === 'and' ? ' is-active' : ''}`}
+                onClick={() => onTagModeChange('and')}
+              >
+                match all
+              </button>
+              <button
+                className={`dir-filter-chip${tagMode === 'or' ? ' is-active' : ''}`}
+                onClick={() => onTagModeChange('or')}
+              >
+                match any
+              </button>
+            </div>
             <div className="dir-filter-chips">
               {allTags.map((tag) => (
                 <button

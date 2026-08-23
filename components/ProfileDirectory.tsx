@@ -7,6 +7,7 @@ import ProfileCard from '@/components/ProfileCard'
 import DirectoryToolbar from '@/components/DirectoryToolbar'
 
 type SortMode = 'az' | 'za' | null
+type TagMode = 'and' | 'or'
 
 function shuffle<T>(arr: T[]): T[] {
   const result = [...arr]
@@ -21,6 +22,7 @@ export default function ProfileDirectory({ people }: { people: Person[] }) {
   const [order, setOrder] = useState<Person[]>(people)
   const [sortMode, setSortMode] = useState<SortMode>(null)
   const [activeTags, setActiveTags] = useState<string[]>([])
+  const [tagMode, setTagMode] = useState<TagMode>('and')
 
   useEffect(() => {
     setOrder(shuffle(people))
@@ -40,10 +42,14 @@ export default function ProfileDirectory({ people }: { people: Person[] }) {
       )
     }
     if (activeTags.length > 0) {
-      list = list.filter((p) => activeTags.every((t) => p.tags.includes(t)))
+      list = list.filter((p) =>
+        tagMode === 'and'
+          ? activeTags.every((t) => p.tags.includes(t))
+          : activeTags.some((t) => p.tags.includes(t))
+      )
     }
     return list
-  }, [order, sortMode, activeTags])
+  }, [order, sortMode, activeTags, tagMode])
 
   function handleRandomize() {
     setOrder(shuffle(people))
@@ -74,10 +80,12 @@ export default function ProfileDirectory({ people }: { people: Person[] }) {
         allTags={allTags}
         activeTags={activeTags}
         sortMode={sortMode}
+        tagMode={tagMode}
         onRandomize={handleRandomize}
         onSortToggle={handleSortToggle}
         onToggleTag={handleToggleTag}
         onClearTags={() => setActiveTags([])}
+        onTagModeChange={setTagMode}
       />
 
       <div className="cards-grid">

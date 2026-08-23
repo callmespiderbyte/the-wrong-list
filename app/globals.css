@@ -796,6 +796,13 @@ body {
   z-index: 41;
 }
 
+.dir-filter-mode-row {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(242, 237, 228, 0.15);
+}
+
 .dir-filter-chips {
   display: flex;
   flex-wrap: wrap;

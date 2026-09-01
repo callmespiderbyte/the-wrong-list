@@ -515,6 +515,15 @@ body {
   .nav-hamburger-wrapper { display: none; }
 }
 
+/* Tablet: desktop nav links are visible but the header is narrower,
+   so the centered HOME link needs to shrink and the links need to
+   sit tighter to avoid colliding in the middle. */
+@media (min-width: 769px) and (max-width: 1150px) {
+  .nav-home-link { font-size: 1.3rem; }
+  .nav-desktop-links { gap: 18px; margin-right: 20px; }
+  .nav-inline-link, .nav-inline-btn { font-size: 0.62rem; }
+}
+
 /* HOME nav link */
 .nav-home-link {
   font-family: var(--font-vanilla), serif;

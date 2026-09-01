@@ -33,6 +33,9 @@ export default function AboutPage() {
           position: 'relative',
           zIndex: 1,
           gap: '48px',
+          maxWidth: '1100px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       >
         {/* Logo + tagline side by side, logo sitting higher */}

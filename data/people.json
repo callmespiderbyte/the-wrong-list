@@ -282,5 +282,18 @@
     "photo": "/photos/Benny.jpg",
     "backgroundColor": "indigo",
     "dateAdded": "2026-08-21"
+  },
+  {
+    "id": "ben-blaine",
+    "name": "Ben Blaine",
+    "tagline": "Founder",
+    "quote": "\"You can't do that.\"",
+    "tags": ["advice & mentoring", "email"],
+    "bio": "Ben has started a lot of projects and companies with other people. A few worked. Most failed. What he does differently, by his own account, is refuse to guard his own role, and instead focus on whatever the team or the project actually needs to move forward.\n\nHe also holds a view most people are too nervous to say out loud: sometimes you can do the thing that isn't strictly legal or regulated, as long as you keep it small and cover the risk yourself. That is all an experiment really is. Say someone makes a fifty rand payment through a product you haven't fully built yet. If you are holding a reserve you can pay them back from, you are fine. Cover the damage, and you get to find out whether the idea actually works.",
+    "website": "https://benblaine.org",
+    "email": "benblaine@gmail.com",
+    "photo": "/photos/Ben.jpeg",
+    "backgroundColor": "dark-blue",
+    "dateAdded": "2026-09-01"
   }
 ]

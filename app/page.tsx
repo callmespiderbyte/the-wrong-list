@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
-import ShuffledCards from '@/components/ShuffledCards'
+import ProfileDirectory from '@/components/ProfileDirectory'
 import GradientBackground from '@/components/GradientBackground'
 import ScrollDownArrow from '@/components/ScrollDownArrow'
 import ScrollDimmer from '@/components/ScrollDimmer'
-import TaglineBanner from '@/components/TaglineBanner'
 
 export const metadata: Metadata = {
   title: 'The Wrong List — A Directory of Unconventional Professionals',
@@ -79,27 +79,15 @@ export default function HomePage() {
         />
         <span className="sr-only">Wrong by most standards, right by the ones that matter.</span>
 
+        {/* Floating "What is this?" callout */}
+        <Link href="/about" className="hero-whatisthis-btn">&ldquo;What is this?&rdquo;</Link>
+
         {/* Scroll-down arrow button */}
         <ScrollDownArrow />
       </section>
 
-      {/* Tagline banner */}
-      <TaglineBanner quotes={people.map(p => p.quote)} />
-
-      {/* Directory section */}
-      <section
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          width: '100%',
-          paddingLeft: 'clamp(16px, 4vw, 60px)',
-          paddingRight: 'clamp(16px, 4vw, 60px)',
-          paddingBottom: '80px',
-        }}
-      >
-        {/* Cards — shuffled client-side so page stays statically cached */}
-        <ShuffledCards people={people} />
-      </section>
+      {/* Directory section — sticky toolbar (randomize / sort / filter) + profile grid */}
+      <ProfileDirectory people={people} />
     </>
   )
 }

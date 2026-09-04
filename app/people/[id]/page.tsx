@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import fs from 'fs'
 import path from 'path'
-import { getPeople, getPersonById } from '@/lib/people'
+import { getPeople, getPersonById, getAdjacentPeople } from '@/lib/people'
 import ProfilePage from '@/components/ProfilePage'
 
 const SITE_URL = 'https://thewronglist.com'
@@ -65,6 +65,8 @@ export default async function PersonPage({ params }: PageProps) {
     notFound()
   }
 
+  const { prev, next } = getAdjacentPeople(id)
+
   const sameAs = [person.website, person.linkedin].filter(Boolean)
   const personSchema = {
     '@context': 'https://schema.org',
@@ -79,7 +81,7 @@ export default async function PersonPage({ params }: PageProps) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
-      <ProfilePage person={person} />
+      <ProfilePage person={person} prev={prev} next={next} />
     </>
   )
 }

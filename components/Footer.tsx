@@ -88,9 +88,9 @@ export default function Footer() {
           }}
         >
           <span>© 2026 Jomiro Eming</span>
-          <a href="mailto:design@jomiro.de?subject=Nomination%20for%20The%20Wrong*%20List" className="footer-link">
+          <Link href="/nominate" className="footer-link">
             Nominate someone
-          </a>
+          </Link>
           <Link href="/manifesto" className="footer-link">
             Manifesto
           </Link>

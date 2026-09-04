@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getPeople } from '@/lib/people'
 import NavBar from '@/components/NavBar'
 import GradientBackground from '@/components/GradientBackground'
@@ -32,6 +33,9 @@ export default function AboutPage() {
           position: 'relative',
           zIndex: 1,
           gap: '48px',
+          maxWidth: '1100px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       >
         {/* Logo + tagline side by side, logo sitting higher */}
@@ -67,6 +71,7 @@ export default function AboutPage() {
         <div
           style={{
             maxWidth: '560px',
+            position: 'relative',
           }}
         >
           <p
@@ -140,6 +145,9 @@ export default function AboutPage() {
           >
             PS: New people get added over time, so it&rsquo;s worth checking back every now and then.
           </p>
+
+          {/* Floating "Who made this?" callout */}
+          <Link href="/curator" className="hero-whatisthis-btn about-whomadethis-btn">&ldquo;Who made this?&rdquo;</Link>
         </div>
       </main>
     </>

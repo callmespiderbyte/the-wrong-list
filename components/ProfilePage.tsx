@@ -1,15 +1,18 @@
+import Link from 'next/link'
 import { Person } from '@/lib/types'
 import GradientBackground from './GradientBackground'
 import NavBar from './NavBar'
 import PolaroidPhoto from './PolaroidPhoto'
-import { getPeople } from '@/lib/people'
+import { getPeople, isNewProfile } from '@/lib/people'
 
 interface ProfilePageProps {
   person: Person
   reversed?: boolean
+  prev?: Person | null
+  next?: Person | null
 }
 
-export default function ProfilePage({ person, reversed = false }: ProfilePageProps) {
+export default function ProfilePage({ person, reversed = false, prev, next }: ProfilePageProps) {
   const people = getPeople()
   const bioParagraphs = person.bio.split('\n\n')
 
@@ -101,7 +104,12 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
 
           {/* ── photo ── */}
           <div className="pf-photo">
-            <PolaroidPhoto src={person.photo} alt={`${person.name} — ${person.tagline}`} />
+            <PolaroidPhoto
+              src={person.photo}
+              alt={`${person.name} — ${person.tagline}`}
+              objectPosition={person.photoPosition}
+              badge={isNewProfile(person) ? <span className="new-badge new-badge-sticker">new</span> : undefined}
+            />
           </div>
 
           {/* ── bottom: bio + quote ── */}
@@ -208,9 +216,47 @@ export default function ProfilePage({ person, reversed = false }: ProfilePagePro
                 snag gallery ↗
               </a>
             )}
+            {person.calendly && (
+              <a
+                href={person.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '8px' }}
+              >
+                book a call ↗
+              </a>
+            )}
+            {person.substack && (
+              <a
+                href={person.substack}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-pill"
+                style={{ marginLeft: '24px' }}
+              >
+                substack ↗
+              </a>
+            )}
           </div>
 
         </div>
+
+        {/* ── prev/next navigation ── */}
+        {(prev || next) && (
+          <div className="pf-adjacent-nav">
+            {prev && (
+              <Link href={`/people/${prev.id}`} className="pf-adjacent-link">
+                ← {prev.name}
+              </Link>
+            )}
+            {next && (
+              <Link href={`/people/${next.id}`} className="pf-adjacent-link pf-adjacent-link-next">
+                {next.name} →
+              </Link>
+            )}
+          </div>
+        )}
       </main>
     </>
   )

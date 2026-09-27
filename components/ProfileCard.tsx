@@ -1,9 +1,11 @@
 'use client'
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { useState, useEffect, useRef } from 'react'
 import { Person } from '@/lib/types'
+import { isNewProfile } from '@/lib/people'
 import ShareMenu from './ShareMenu'
 
 const SCRAMBLE_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -80,16 +82,20 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
   }
 
   return (
-    <div
+    <motion.div
       className="profile-card"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       role="link"
       tabIndex={0}
       ref={scrambleRef}
-      style={{
-        animation: 'rowEntrance 0.45s ease both',
-        animationDelay: `${Math.min(index * 45, 500)}ms`,
+      layout
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{
+        layout: { duration: 0.45, ease: [0.22, 1, 0.36, 1] },
+        default: { duration: 0.4, delay: Math.min(index * 0.045, 0.5) },
       }}
     >
       {/* Photo — square, with padding from card outline */}
@@ -102,6 +108,9 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
             sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw"
             style={{ objectFit: 'cover', objectPosition: 'top center' }}
           />
+          {isNewProfile(person) && (
+            <span className="new-badge new-badge-sticker">new</span>
+          )}
         </div>
       </div>
 
@@ -136,6 +145,6 @@ export default function ProfileCard({ person, index }: { person: Person; index: 
         </div>
 
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -6,9 +6,11 @@ import { useRef } from 'react'
 interface PolaroidPhotoProps {
   src: string
   alt: string
+  objectPosition?: string
+  badge?: React.ReactNode
 }
 
-export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
+export default function PolaroidPhoto({ src, alt, objectPosition = 'center', badge }: PolaroidPhotoProps) {
   const wrapRef = useRef<HTMLDivElement>(null)
 
   function handleMouseMove(e: React.MouseEvent) {
@@ -31,8 +33,9 @@ export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
       ref={wrapRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ transition: 'transform 0.2s ease', transformStyle: 'preserve-3d', willChange: 'transform' }}
+      style={{ position: 'relative', transition: 'transform 0.2s ease', transformStyle: 'preserve-3d', willChange: 'transform' }}
     >
+      {badge}
       <Image
         src={src}
         alt={alt}
@@ -42,6 +45,7 @@ export default function PolaroidPhoto({ src, alt }: PolaroidPhotoProps) {
         style={{
           display: 'block',
           objectFit: 'cover',
+          objectPosition,
           width: '100%',
           height: 'auto',
           aspectRatio: '1/1',

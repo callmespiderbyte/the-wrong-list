@@ -16,5 +16,6 @@ export interface Person {
   photo: string
   photoPosition?: string
   dateAdded?: string
+  newUntil?: string
   backgroundColor: 'red' | 'teal' | 'indigo' | 'light-blue' | 'dark-blue' | 'purple'
 }

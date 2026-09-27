@@ -210,7 +210,8 @@
     "linkedin": "https://www.linkedin.com/in/gabi-immelman",
     "photo": "/photos/Gabi.png",
     "backgroundColor": "indigo",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "cora-veltman",
@@ -224,7 +225,8 @@
     "email": "cmveltman062@gmail.com",
     "photo": "/photos/Cora.jpg",
     "backgroundColor": "dark-blue",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "nathan-nadler-nir",
@@ -239,7 +241,8 @@
     "instagram": "https://instagram.com/nathannadlernir",
     "photo": "/photos/Nathan.jpg",
     "backgroundColor": "teal",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "kat-kibben",
@@ -254,7 +257,8 @@
     "photo": "/photos/Kat.jpg",
     "photoPosition": "center top",
     "backgroundColor": "light-blue",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "ana-lucia-jardim",
@@ -268,7 +272,8 @@
     "substack": "https://analuciajardim.substack.com",
     "photo": "/photos/AnaLucia.jpg",
     "backgroundColor": "teal",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "benny-ou",
@@ -281,7 +286,8 @@
     "linkedin": "https://www.linkedin.com/in/benny-ou",
     "photo": "/photos/Benny.jpg",
     "backgroundColor": "indigo",
-    "dateAdded": "2026-08-21"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "ben-blaine",
@@ -294,7 +300,8 @@
     "email": "benblaine@gmail.com",
     "photo": "/photos/Ben.jpeg",
     "backgroundColor": "dark-blue",
-    "dateAdded": "2026-09-01"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   },
   {
     "id": "mark-deubel",
@@ -307,6 +314,7 @@
     "linkedin": "https://www.linkedin.com/in/markdeubel/",
     "photo": "/photos/Mark.jpg",
     "backgroundColor": "indigo",
-    "dateAdded": "2026-09-11"
+    "dateAdded": "2026-10-01",
+    "newUntil": "2026-10-31"
   }
 ]

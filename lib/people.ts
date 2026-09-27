@@ -10,6 +10,14 @@ export function getPersonById(id: string): Person | undefined {
 }
 
 export function isNewProfile(person: Person, days = 30): boolean {
+  // Explicit override: show as "new" any time up to and including this date,
+  // regardless of dateAdded. Useful when the badge window doesn't map cleanly
+  // to a flat N-day span from a single start date (e.g. a delayed launch).
+  if (person.newUntil) {
+    const until = new Date(person.newUntil).getTime()
+    return !Number.isNaN(until) && Date.now() <= until
+  }
+
   if (!person.dateAdded) return false
   const addedAt = new Date(person.dateAdded).getTime()
   if (Number.isNaN(addedAt)) return false
